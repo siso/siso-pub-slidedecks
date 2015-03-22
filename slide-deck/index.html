@@ -447,8 +447,7 @@ create  cheftdd/Vagrantfile
 						<script type="text/template">
 							**[Bundler](http://bundler.io/)**
 							```
-✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2…1]
-16:32 $ bundle
+$ bundle
 Fetching gem metadata from https://rubygems.org/.......
 Fetching additional metadata from https://rubygems.org/..
 Resolving dependencies...
@@ -478,8 +477,7 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 					<section data-markdown>
 						<script type="text/template">
 ```
-✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2…2]
-16:42 $ rubocop
+$ rubocop
 warning: parser/current is loading parser/ruby21, which recognizes
 warning: 2.1.5-compliant syntax, but you are running 2.1.4.
 Inspecting 2 files
@@ -518,8 +516,7 @@ All good!
 					<section data-markdown>
 						<script type="text/template">
 ```
-✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2…2]
-16:56 $ bundle exec rake style
+$ bundle exec rake style
 RACK005: Cookbook metadata must have maintainer='Rackspace' maintainer_email='rackspace-cookbooks@rackspace.com': /Users/siso/workspaces/chef/cookbooks/cheftdd/metadata.rb:2
 RACK005: Cookbook metadata must have maintainer='Rackspace' maintainer_email='rackspace-cookbooks@rackspace.com': /Users/siso/workspaces/chef/cookbooks/cheftdd/metadata.rb:3
 RACK008: Files expected by Support must exist: Berksfile.lock:0
@@ -543,8 +540,7 @@ Need to fix something
 						<script type="text/template">
 Change *Mainteiner* and *email*, and try again:
 ```
-✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2✚ 1…2]
-17:03 $ bundle exec rake style
+$ bundle exec rake style
 RACK008: Files expected by Support must exist: Berksfile.lock:0
 RACK009: Berksfile.lock must not be in .gitignore: .gitignore:11
 warning: parser/current is loading parser/ruby21, which recognizes
@@ -567,8 +563,7 @@ It's better
 Generate `Berkshelf.lock`:
 
 ```
-✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2✚ 1…3]
-17:03 $ berks install
+$ berks install
 Resolving cookbook dependencies...
 Fetching 'cheftdd' from source at .
 Fetching cookbook index from https://supermarket.chef.io...
@@ -582,8 +577,7 @@ and remove it from `.gitignore`.
 						<script type="text/template">
 Try again:
 ```
-✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2✚ 2…4]
-17:08 $ bundle exec rake style
+$ bundle exec rake style
 warning: parser/current is loading parser/ruby21, which recognizes
 warning: 2.1.5-compliant syntax, but you are running 2.1.4.
 Running RuboCop...
@@ -609,13 +603,144 @@ OK!
 				</section>
 
 				<section>
-					<h2>RSpec and Serverspec</h2>
-					TODO
+					<h2>TDD, and BDD</h2>
+					<section>
+						<img src="images/serverspec.png" style="margin-top:100px; border:0px;">
+						<br>
+						<a href="http://serverspec.org/" target="_blank">Serverspec</a> allows to write RSpec tests for checking your servers are configured correctly.
+					</section>
+					<section>
+						<img src="images/rspec.png" style="margin-top:100px; border:0px;">
+						<br>
+						<a href="http://rspec.info/" target="_blank">RSpec</a><br>
+						Behaviour Driven<br>
+						Development for Ruby.<br>
+						Making TDD Productive and Fun.
+					</section>
+					<section>
+						Let's say the the default recipe should:<br><br>
+						<ul>
+							<li>update the package-manager database</li>
+							<li>upgrade packages</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							Which is
+							```
+# apt-get update
+# apt-get upgrade
+							```
+						</script>
 					<aside class="notes">
-						Unit testing
-						It's fast and easy because there is no need to have Cef Server, or to run Virtual Machines or Cloud Servers
+						...
 					</aside>
 				</section>
+				<section data-markdown>
+					<script type="text/template">
+						Then write a test:
+```
+$ cat test/unit/spec/default_spec.rb
+
+...
+
+it 'executes apt-get update' do
+  expect(chef_run).to run_execute('apt-get update')
+end
+
+...
+
+```
+					</script>
+					<aside class="notes">
+						...
+					</aside>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						Look at it failing:
+```
+$ bundle exec rake spec
+/opt/chefdk/embedded/bin/ruby -I/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/lib:/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-support-3.2.2/lib /Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb test/unit
+F
+
+Failures:
+
+  1) cheftdd::default executes apt-get update
+     Failure/Error: expect(chef_run).to run_execute('apt-get update')
+       expected "execute[apt-get update]" with action :run to be in Chef run. Other execute resources:
+
+
+
+     # ./test/unit/spec/default_spec.rb:23:in `block (2 levels) in <top (required)>'
+
+Finished in 0.15203 seconds (files took 2.39 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./test/unit/spec/default_spec.rb:22 # cheftdd::default executes apt-get update
+
+
+  No Chef resources found, skipping coverage calculation...
+/opt/chefdk/embedded/bin/ruby -I/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/lib:/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-support-3.2.2/lib /Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb test/unit failed
+```
+					</script>
+					<aside class="notes">
+						...
+					</aside>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+Write code which passes the test:
+```
+#
+# Cookbook Name:: cheftdd
+# Recipe:: default
+#
+# Copyright (C) 2015 YOUR_NAME
+#
+# All rights reserved - Do Not Redistribute
+#
+
+execute "apt-get update/upgrade" do
+  command "apt-get update"
+  action :run
+end
+```
+					</script>
+					<aside class="notes">
+						...
+					</aside>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						Run the test again:
+```
+$ bundle exec rake spec
+/opt/chefdk/embedded/bin/ruby -I/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/lib:/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-support-3.2.2/lib /Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb test/unit
+.
+
+Finished in 0.16453 seconds (files took 2.52 seconds to load)
+1 example, 0 failures
+
+
+ChefSpec Coverage report generated...
+
+  Total Resources:   1
+  Touched Resources: 1
+  Touch Coverage:    100.0%
+
+You are awesome and so is your test coverage! Have a fantastic day!
+```
+
+and see it pass the test!
+					</script>
+					<aside class="notes">
+						...
+					</aside>
+				</section>
+			</section>
 
 				<section>
 					<h2>Run Unit Tests</h2>
