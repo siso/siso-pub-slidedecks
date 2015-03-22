@@ -469,10 +469,29 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 
 				<section>
 					<h2>Rubocop</h2>
-					TODO
-					<aside class="notes">
-						Style first!
-					</aside>
+					<section>
+						<a href="http://batsov.com/rubocop/" target="_blank">
+							<img src="images/rubo-logo-horizontal.png" style="margin-top:100px; border:0px;" />
+						</a><br>
+						A Ruby static code analyzer, based on the community Ruby style guide. [link]
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							```
+✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2…2]
+16:42 $ rubocop
+warning: parser/current is loading parser/ruby21, which recognizes
+warning: 2.1.5-compliant syntax, but you are running 2.1.4.
+Inspecting 2 files
+..
+
+2 files inspected, no offenses detected
+							```
+						</script>
+						<aside class="notes">
+							Analyse Ruby code with Rubocop, make recipies have similar style, and syntax too!
+						</aside>
+					</section>
 				</section>
 
 				<section>
