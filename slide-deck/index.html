@@ -473,11 +473,11 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 						<a href="http://batsov.com/rubocop/" target="_blank">
 							<img src="images/rubo-logo-horizontal.png" style="margin-top:100px; border:0px;" />
 						</a><br>
-						A Ruby static code analyzer, based on the community Ruby style guide. [link]
+						A Ruby static code analyzer, based on the community Ruby style guide.
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							```
+```
 ✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2…2]
 16:42 $ rubocop
 warning: parser/current is loading parser/ruby21, which recognizes
@@ -486,7 +486,9 @@ Inspecting 2 files
 ..
 
 2 files inspected, no offenses detected
-							```
+```
+
+All good!
 						</script>
 						<aside class="notes">
 							Analyse Ruby code with Rubocop, make recipies have similar style, and syntax too!
@@ -496,18 +498,104 @@ Inspecting 2 files
 
 				<section>
 					<h2>Foodcritic</h2>
-					TODO
-					<aside class="notes">
-						Address quickly common issues that might have when trying to converge
-					</aside>
+					<a href="http://acrmp.github.io/foodcritic/" target="_blank">Foodcritic</a> is a lint tool for your Opscode Chef cookbooks.
+				</section>
+
+				<section>
+					<h2>Rake</h2>
+					<a href="http://rake.rubyforge.org/" target="_blank">Rake</a> is a simple ruby build program with capabilities similar to make.
 				</section>
 
 				<section>
 					<h2>Check style</h2>
-					TODO
-					<aside class="notes">
-						run and check that bundle rake exec style is happy
-					</aside>
+					<section>
+						Use Rake to run Rubocop and Foodcritic, in the right environment with Bundler
+						<aside class="notes">
+							run and check that bundle rake exec style is happy
+						</aside>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
+```
+✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2…2]
+16:56 $ bundle exec rake style
+RACK005: Cookbook metadata must have maintainer='Rackspace' maintainer_email='rackspace-cookbooks@rackspace.com': /Users/siso/workspaces/chef/cookbooks/cheftdd/metadata.rb:2
+RACK005: Cookbook metadata must have maintainer='Rackspace' maintainer_email='rackspace-cookbooks@rackspace.com': /Users/siso/workspaces/chef/cookbooks/cheftdd/metadata.rb:3
+RACK008: Files expected by Support must exist: Berksfile.lock:0
+RACK009: Berksfile.lock must not be in .gitignore: .gitignore:11
+warning: parser/current is loading parser/ruby21, which recognizes
+warning: 2.1.5-compliant syntax, but you are running 2.1.4.
+Running RuboCop...
+Inspecting 2 files
+..
+
+2 files inspected, no offenses detected
+```
+
+Need to fix something
+						</script>
+						<aside class="notes">
+							Address quickly common issues that might have when trying to converge
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Change *Mainteiner* and *email*, and try again:
+```
+✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2✚ 1…2]
+17:03 $ bundle exec rake style
+RACK008: Files expected by Support must exist: Berksfile.lock:0
+RACK009: Berksfile.lock must not be in .gitignore: .gitignore:11
+warning: parser/current is loading parser/ruby21, which recognizes
+warning: 2.1.5-compliant syntax, but you are running 2.1.4.
+Running RuboCop...
+Inspecting 2 files
+..
+
+2 files inspected, no offenses detected
+```
+
+It's better
+						</script>
+						<aside class="notes">
+							Address quickly common issues that might have when trying to converge
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Generate `Berkshelf.lock`:
+
+```
+✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2✚ 1…3]
+17:03 $ berks install
+Resolving cookbook dependencies...
+Fetching 'cheftdd' from source at .
+Fetching cookbook index from https://supermarket.chef.io...
+Using cheftdd (0.1.0) from source at .
+```
+
+and remove it from `.gitignore`.
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Try again:
+```
+✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2✚ 2…4]
+17:08 $ bundle exec rake style
+warning: parser/current is loading parser/ruby21, which recognizes
+warning: 2.1.5-compliant syntax, but you are running 2.1.4.
+Running RuboCop...
+Inspecting 2 files
+..
+
+2 files inspected, no offenses detected
+```
+
+OK!
+						</script>
+					</section>
 				</section>
 
 				<section>
