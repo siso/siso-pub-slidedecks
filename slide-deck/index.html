@@ -264,6 +264,33 @@
 							- Foodcritic, linting tool for doing static code analysis on cookbooks<br>
 						</aside>
 					</section>
+					<section data-markdown>
+						<script type="text/template">
+							That might save you from heachaches ([Chef Docs](https://docs.chef.io/install_dk.html)):
+```
+$ which ruby
+/opt/chefdk/embedded/bin/ruby
+```
+						</script>
+						<aside class="notes">
+							Use ruby provided by Chef DK
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							That might save you from heachaches ([Chef Docs](https://docs.chef.io/install_dk.html)):
+```
+$ chef shell-init bash
+export PATH="/opt/chefdk/bin:/Users/siso/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/opt/chefdk/bin:/Users/siso/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+export GEM_HOME="/Users/siso/.chefdk/gem/ruby/2.1.0"
+export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+```
+						</script>
+						<aside class="notes">
+							Add that to "~/.bashrc", "~/.bash_profile" or whatever your shell uses
+						</aside>
+					</section>
 				</section>
 
 				<section>
@@ -303,7 +330,7 @@
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							## knife
+							knife
 							```shell
 							$ knife cookbook create foo
 							** Creating cookbook foo in /Users/siso/.chef/cookbooks
@@ -320,19 +347,19 @@
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							Berkshelf
+							Off on the right foot with **Berkshelf**
 							```
 							$ berks cookbook cheftdd
 							```
 						</script>
 						*...the right way*
 						<aside class="notes">
-							Start writing new cookbook the right way, with Berkshelf
+							Get off on the right foot, and start new cookbook the right way, with Berkshelf
 						</aside>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							Berkshelf
+							**Berkshelf**
 							```
 $ berks cookbook cheftdd
 create  cheftdd/files/default
@@ -365,9 +392,117 @@ create  cheftdd/Vagrantfile
 						</script>
 						<aside class="notes">
 							See Berkshelf's output
+
+							Now the very basic skeleton of new cookbook is available
 						</aside>
 					</section>
 				</section>
+
+				<section>
+					<h2>Rubocop</h2>
+					TODO
+					<aside class="notes">
+						Style first!
+					</aside>
+				</section>
+
+				<section>
+					<h2>Foodcritic</h2>
+					TODO
+					<aside class="notes">
+						Address quickly common issues that might have when trying to converge
+					</aside>
+				</section>
+
+				<section>
+					<h2>Check style</h2>
+					TODO
+					<aside class="notes">
+						run and check that bundle rake exec style is happy
+					</aside>
+				</section>
+
+				<section>
+					<h2>Unit Testing</h2>
+					TODO
+					<aside class="notes">
+						What is it about?
+						Why?
+						How?
+					</aside>
+				</section>
+
+				<section>
+					<h2>RSpec and Serverspec</h2>
+					TODO
+					<aside class="notes">
+						Unit testing
+						It's fast and easy because there is no need to have Cef Server, or to run Virtual Machines or Cloud Servers
+					</aside>
+				</section>
+
+				<section>
+					<h2>Run Unit Tests</h2>
+					TODO
+					<aside class="notes">
+						Write tests
+						bundle rake exec spec
+						and see them fail
+					</aside>
+				</section>
+
+				<section>
+					<h2>Integration Testing</h2>
+					TODO
+					<aside class="notes">
+						What is it about?
+						Why?
+						How?
+					</aside>
+				</section>
+
+				<section>
+					<h2>Test Kitchen</h2>
+					TODO
+					<aside class="notes">
+						Integration testing
+					</aside>
+				</section>
+
+				<section>
+					<h2>Chef Zero</h2>
+					TODO
+					<aside class="notes">
+						In-memory Chef Server, it's super-fast and light-weight
+					</aside>
+				</section>
+
+				<section>
+					<h2>Run Integration Tests</h2>
+					TODO
+					<aside class="notes">
+						Run Integration Tests with Test-Kitchen, bats, and all that jazz
+					</aside>
+				</section>
+
+				<section id="check-again-fragments">
+					<h2>Check all the things again</h2>
+					<span class="fragment">
+						TODO
+					</span>
+					<br>
+					<span class="fragment">
+						...and again!
+					</span>
+					<aside class="notes">
+						It's not waterfall model, it's a loop.
+						Restart from the very beginning, and check that everything works properly.
+					</aside>
+				</section>
+
+
+
+
 
 
 
