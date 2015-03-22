@@ -340,7 +340,7 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 					</section>
 				</section>
 
-				<section  data-background="images/lets_cook_mr_white.png" data-background-size="250px">
+				<section data-background="images/lets_cook_mr_white.png" data-background-size="250px">
 					<h2>Let's cook</h2>
 					<section>
 						&nbsp;
@@ -434,6 +434,35 @@ create  cheftdd/Vagrantfile
 							See Berkshelf's output
 
 							Now the very basic skeleton of new cookbook is available
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<h2>Grab Ruby Gems</h2>
+					<section data-background="images/ruby-gem.png" data-background-size="250px">
+						&nbsp;
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							**[Bundler](http://bundler.io/)**
+							```
+✔ ~/workspaces/chef/cookbooks/cheftdd [devel L|●2…1]
+16:32 $ bundle
+Fetching gem metadata from https://rubygems.org/.......
+Fetching additional metadata from https://rubygems.org/..
+Resolving dependencies...
+Using rake 10.4.2
+Installing CFPropertyList 2.3.1
+...
+Using vagrant-wrapper 2.0.2
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+							```
+						</script>
+						<aside class="notes">
+							Resolve Ruby dependencies with bundles
+							Have Ruby Gems installed
 						</aside>
 					</section>
 				</section>
