@@ -742,14 +742,240 @@ and see it pass the test!
 				</section>
 			</section>
 
+			<section data-background="images/meme-keep_on_going.jpg" data-background-size="600px">
+				<aside class="notes">
+					...
+				</aside>
+			</section>
+
 				<section>
-					<h2>Run Unit Tests</h2>
-					TODO
-					<aside class="notes">
-						Write tests
-						bundle rake exec spec
-						and see them fail
-					</aside>
+					<h2>'nodejs' recipe</h2>
+					<section>
+						Install Node.js, and deploy web-app
+						<aside class="notes">
+							- Server is now updated, Node.js can be installed<br>
+							- Need to install Node.js, install packages with npm, grunt and all that jazz<br>
+						</aside>
+					</section>
+					<section>
+						<a href="https://supermarket.chef.io/" target="_blank">
+							<img src="images/supermarket-nodejs.png" style="height: 600px; margin-top:75px; border:0px;" />
+						</a>
+						<aside class="notes">
+							- 'nodejs' recipe is available on Chef Supermarket<br>
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+
+Follow [instructions](https://github.com/hakimel/reveal.js#installation) to install reveal.js:
+
+- Install [Node.js](http://nodejs.org/)
+- Install [Grunt](http://gruntjs.com/getting-started#installing-the-cli)
+- Clone reveal.js
+   ```sh
+   $ git clone https://github.com/hakimel/reveal.js.git
+   ```
+- Install dependencies
+   ```sh
+   $ npm install
+   ```
+
+- Serve the presentation and monitor source files for changes
+   ```sh
+   $ grunt serve
+   ```
+
+Open <http://localhost:8000> to view your presentation
+						</script>
+						<aside class="notes">
+							...
+						</aside>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
+Write test for `recipe/nodejs.rb`:
+```
+it 'include nodejs recipe' do
+  expect(chef_run).to include_recipe('nodejs')
+end
+
+# Follow instructions to install reveal.js on https://github.com/hakimel/reveal.js/
+it 'install grunt-cli' do
+  expect(chef_run).to run_execute('npm install -g grunt-cli')
+end
+
+it 'install git' do
+  expect(chef_run).to install_apt_package('git')
+end
+
+it 'clone reveal.js GitHub repository' do
+  expect(chef_run).to run_execute('git clone https://github.com/hakimel/reveal.js.git')
+end
+
+it 'install npm packages' do
+  expect(chef_run).to run_execute('npm install')
+end
+```
+						</script>
+						<aside class="notes">
+							Write test for nodejs recipe
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+See tests for `nodejs` recipe fail:
+```
+$ bundle exec rake spec
+/opt/chefdk/embedded/bin/ruby -I/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/lib:/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-support-3.2.2/lib /Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb test/unit
+.FFFFF
+
+Failures:
+
+  1) cheftdd::nodejs include nodejs recipe
+     Failure/Error: expect(chef_run).to include_recipe('nodejs')
+       expected ["cheftdd::nodejs"] to include "nodejs::default"
+     # ./test/unit/spec/nodejs_spec.rb:23:in `block (2 levels) in <top (required)>'
+
+  2) cheftdd::nodejs install grunt-cli
+     Failure/Error: expect(chef_run).to run_execute('npm install -g grunt-cli')
+       expected "execute[npm install -g grunt-cli]" with action :run to be in Chef run. Other execute resources:
+
+
+
+     # ./test/unit/spec/nodejs_spec.rb:28:in `block (2 levels) in <top (required)>'
+
+  3) cheftdd::nodejs install git
+     Failure/Error: expect(chef_run).to install_apt_package('git')
+       expected "apt_package[git]" with action :install to be in Chef run. Other apt_package resources:
+
+
+
+     # ./test/unit/spec/nodejs_spec.rb:32:in `block (2 levels) in <top (required)>'
+
+  4) cheftdd::nodejs clone reveal.js GitHub repository
+     Failure/Error: expect(chef_run).to run_execute('git clone https://github.com/hakimel/reveal.js.git')
+       expected "execute[git clone https://github.com/hakimel/reveal.js.git]" with action :run to be in Chef run. Other execute resources:
+
+
+
+     # ./test/unit/spec/nodejs_spec.rb:36:in `block (2 levels) in <top (required)>'
+
+  5) cheftdd::nodejs install npm packages
+     Failure/Error: expect(chef_run).to run_execute('npm install')
+       expected "execute[npm install]" with action :run to be in Chef run. Other execute resources:
+
+
+
+     # ./test/unit/spec/nodejs_spec.rb:40:in `block (2 levels) in <top (required)>'
+
+Finished in 1.03 seconds (files took 2.45 seconds to load)
+6 examples, 5 failures
+
+Failed examples:
+
+rspec ./test/unit/spec/nodejs_spec.rb:22 # cheftdd::nodejs include nodejs recipe
+rspec ./test/unit/spec/nodejs_spec.rb:27 # cheftdd::nodejs install grunt-cli
+rspec ./test/unit/spec/nodejs_spec.rb:31 # cheftdd::nodejs install git
+rspec ./test/unit/spec/nodejs_spec.rb:35 # cheftdd::nodejs clone reveal.js GitHub repository
+rspec ./test/unit/spec/nodejs_spec.rb:39 # cheftdd::nodejs install npm packages
+```
+						</script>
+						<aside class="notes">
+							See tests for `nodejs` recipe fail
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Install Node.js using `nodejs::default` recipe:
+```
+#
+# Cookbook Name:: cheftdd-demo
+# Recipe:: nodejs
+#
+# Copyright (C) 2015 YOUR_NAME
+#
+# All rights reserved - Do Not Redistribute
+#
+
+#
+# Install reveal.js - https://github.com/hakimel/reveal.js/
+#
+
+# install nodejs, from package by default
+include_recipe 'nodejs'
+
+execute 'install grunt-cli' do
+  command 'npm install -g grunt-cli'
+  action :run
+end
+```
+						</script>
+						<aside class="notes">
+							pending
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Install [reveal.js](https://github.com/hakimel/reveal.js) by cloning GitHub repository:
+```
+package 'git' do
+  action :install
+end
+
+execute 'clone reveal.js GitHub repository' do
+  command 'git clone https://github.com/hakimel/reveal.js.git'
+  action :run
+  cwd '/opt'
+  not_if { File.exist?('/opt/reveal.js') }
+end
+```
+						</script>
+						<aside class="notes">
+							pending
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Resolve dependencies for *reveal.js*:
+```
+execute 'install npm packages' do
+  command 'npm install'
+  action :run
+  cwd '/opt/reveal.js'
+end
+
+execute 'start serving node.js app' do
+  command 'grunt serve &'
+  action :run
+  cwd '/opt/reveal.js'
+end
+```
+						</script>
+						<aside class="notes">
+							pending
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Write `nodejs` recipe:
+```
+$ bundle exec rake spec
+/opt/chefdk/embedded/bin/ruby -I/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/lib:/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-support-3.2.2/lib /Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb test/unit
+......
+
+Finished in 1.06 seconds (files took 2.51 seconds to load)
+6 examples, 0 failures
+```
+						</script>
+						<aside class="notes">
+							pending
+						</aside>
+					</section>
+					<section data-background="#ffffff">
+						<img src="images/meme-like_a_boss.jpg" style="height: 500px; margin-top:100px; border:0px;" /><br>
+					</section>
 				</section>
 
 				<section>
@@ -766,23 +992,9 @@ and see it pass the test!
 					<h2>Test Kitchen</h2>
 					TODO
 					<aside class="notes">
-						Integration testing
-					</aside>
-				</section>
-
-				<section>
-					<h2>Chef Zero</h2>
-					TODO
-					<aside class="notes">
-						In-memory Chef Server, it's super-fast and light-weight
-					</aside>
-				</section>
-
-				<section>
-					<h2>Run Integration Tests</h2>
-					TODO
-					<aside class="notes">
-						Run Integration Tests with Test-Kitchen, bats, and all that jazz
+						- Integration testing
+						- Run Integration Tests with Test-Kitchen, bats, and all that jazz
+						- Use Chef Zero, In-memory Chef Server, it's super-fast and light-weight
 					</aside>
 				</section>
 
