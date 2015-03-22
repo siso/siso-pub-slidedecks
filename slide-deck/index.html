@@ -267,6 +267,111 @@
 				</section>
 
 				<section>
+					<h2>Chef Supermarket</h2>
+					<a href="https://supermarket.chef.io/" target="_blank">
+						<img src="images/chef-supermarket.png" style="height: 600px; margin-top:0px; border:0px;" />
+					</a>
+					<aside class="notes">
+						Do not re-invent the wheel, see what's already available, by and for the community.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Start cooking with Berkshelf</h2>
+					<section data-markdown>
+						<script type="text/template">
+							Create files and dirs on the CLI
+
+							```shell
+							$ cd cookbooks
+							$ mkdir attributes recipes
+							$ cat > foo/metadata.rb << EOF
+							> name             'foo'
+							> maintainer       'YOUR_COMPANY_NAME'
+							> maintainer_email 'YOUR_EMAIL'
+							> license          'All rights reserved'
+							> description      'Installs/Configures foo'
+							> long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+							> version          '0.1.0'
+							> EOF
+							```
+							*...and so on*
+						</script>
+						<aside class="notes">
+							It's a manual task, then it's prone to errors
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## knife
+							```shell
+							$ knife cookbook create foo
+							** Creating cookbook foo in /Users/siso/.chef/cookbooks
+							** Creating README for cookbook: foo
+							** Creating CHANGELOG for cookbook: foo
+							** Creating metadata for cookbook: foo
+
+							$ ls /Users/siso/.chef/cookbooks/foo/
+							CHANGELOG.md README.md    attributes   definitions  files
+							libraries    metadata.rb  providers    recipes      resources
+							templates
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							Berkshelf
+							```
+							$ berks cookbook cheftdd
+							```
+						</script>
+						*...the right way*
+						<aside class="notes">
+							Start writing new cookbook the right way, with Berkshelf
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							Berkshelf
+							```
+$ berks cookbook cheftdd
+create  cheftdd/files/default
+create  cheftdd/templates/default
+create  cheftdd/attributes
+create  cheftdd/libraries
+create  cheftdd/providers
+create  cheftdd/recipes
+create  cheftdd/resources
+create  cheftdd/recipes/default.rb
+create  cheftdd/metadata.rb
+create  cheftdd/LICENSE
+create  cheftdd/README.md
+create  cheftdd/CHANGELOG.md
+create  cheftdd/Berksfile
+create  cheftdd/Thorfile
+create  cheftdd/chefignore
+create  cheftdd/.gitignore
+create  cheftdd/Gemfile
+create  .kitchen.yml
+append  Thorfile
+create  test/integration/default
+append  .gitignore
+append  .gitignore
+append  Gemfile
+append  Gemfile
+You must run `bundle install' to fetch any new gems.
+create  cheftdd/Vagrantfile
+							```
+						</script>
+						<aside class="notes">
+							See Berkshelf's output
+						</aside>
+					</section>
+				</section>
+
+
+
+				<section>
 					<h1>Links</h1>
 					<span style="text-align: left;">
 						<small>
