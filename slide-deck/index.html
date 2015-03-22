@@ -266,7 +266,7 @@
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							That might save you from heachaches ([Chef Docs](https://docs.chef.io/install_dk.html)):
+							That might save you from headaches ([Chef Docs](https://docs.chef.io/install_dk.html)):
 ```
 $ which ruby
 /opt/chefdk/embedded/bin/ruby
@@ -278,7 +278,7 @@ $ which ruby
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							That might save you from heachaches ([Chef Docs](https://docs.chef.io/install_dk.html)):
+							and that too:
 ```
 $ chef shell-init bash
 export PATH="/opt/chefdk/bin:/Users/siso/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/opt/chefdk/bin:/Users/siso/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -320,19 +320,34 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 
 				<section>
 					<h2>Chef Supermarket</h2>
-					<a href="https://supermarket.chef.io/" target="_blank">
-						<img src="images/chef-supermarket.png" style="height: 600px; margin-top:0px; border:0px;" />
-					</a>
-					<aside class="notes">
-						Do not re-invent the wheel, see what's already available, by and for the community.
-					</aside>
+					<section>
+						<a href="https://supermarket.chef.io/" target="_blank">
+							<img src="images/chef-supermarket.png" style="height: 600px; margin-top:75px; border:0px;" />
+						</a>
+						<aside class="notes">
+							Do not re-invent the wheel, see what's already available, by and for the community.
+						</aside>
+					</section>
+					<section>
+						<a href="https://supermarket.chef.io/" target="_blank">
+							<img src="images/supermarket-nodejs.png" style="height: 600px; margin-top:75px; border:0px;" />
+						</a>
+					</section>
+					<section>
+						<a href="https://supermarket.chef.io/" target="_blank">
+							<img src="images/supermarket-rackspace_iptables.png" style="height: 600px; margin-top:75px; border:0px;" />
+						</a>
+					</section>
 				</section>
 
-				<section>
-					<h2>Start cooking with Berkshelf</h2>
+				<section  data-background="images/lets_cook_mr_white.png" data-background-size="250px">
+					<h2>Let's cook</h2>
+					<section>
+						&nbsp;
+					</section>
 					<section data-markdown>
 						<script type="text/template">
-							Create files and dirs on the CLI
+							Manually
 
 							```shell
 							$ cd cookbooks
@@ -347,7 +362,7 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 							> version          '0.1.0'
 							> EOF
 							```
-							*...and so on*
+							*...are you kidding?*
 						</script>
 						<aside class="notes">
 							It's a manual task, then it's prone to errors
@@ -372,12 +387,12 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							Off on the right foot with **Berkshelf**
+							**Berkshelf**
 							```
 							$ berks cookbook cheftdd
 							```
+							*Get off on the right foot!*
 						</script>
-						*...the right way*
 						<aside class="notes">
 							Get off on the right foot, and start new cookbook the right way, with Berkshelf
 						</aside>
@@ -569,6 +584,10 @@ create  cheftdd/Vagrantfile
 							<tbody>
 								<tr>
 									<td>The Big Bang Theory</td>
+									<td>1</td>
+								<tr>
+								<tr>
+									<td>Breaking Bad</td>
 									<td>1</td>
 								<tr>
 								<tr>
