@@ -795,34 +795,40 @@ and see it pass the test!
 					<section data-markdown>
 						<script type="text/template">
 
-Follow [instructions](https://github.com/hakimel/reveal.js#installation) to install reveal.js:
+Deploy [reveal.js](https://github.com/hakimel/reveal.js#installation):
 
-- Install [Node.js](http://nodejs.org/)
-- Install [Grunt](http://gruntjs.com/getting-started#installing-the-cli)
-- Clone reveal.js
+- install [Node.js](http://nodejs.org/) and [Grunt](http://gruntjs.com/getting-started#installing-the-cli)
+- clone reveal.js
    ```sh
    $ git clone https://github.com/hakimel/reveal.js.git
    ```
-- Install dependencies
+- resolve dependencies
    ```sh
    $ npm install
    ```
 
-- Serve the presentation and monitor source files for changes
+- serve the slide-deck
    ```sh
-   $ grunt serve
+   $ grunt serve --port 80
    ```
-
-Open <http://localhost:8000> to view your presentation
 						</script>
 						<aside class="notes">
 							...
 						</aside>
 					</section>
-
+					<section id="rspec-filenaming-schema-fragments">
+						<h4>File-naming schema for RSpec tests</h4>
+						<p class="fragment" style="font-family:'Courier New'">
+							recipes/nodejs.rb
+						</p>
+						<p class="fragment" style="font-family:'Courier New'">
+							&#x21D3;<br>
+							test/unit/spec/nodejs_spec.rb
+						</p>
+					</section>
 					<section data-markdown>
 						<script type="text/template">
-Write test for `recipe/nodejs.rb`:
+`test/unit/spec/nodejs_spec.rb`
 ```
 it 'include nodejs recipe' do
   expect(chef_run).to include_recipe('nodejs')
@@ -852,7 +858,7 @@ end
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-See tests for `nodejs` recipe fail:
+`recipes/nodejs.rb` tests fail:
 ```
 $ bundle exec rake spec
 /opt/chefdk/embedded/bin/ruby -I/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/lib:/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-support-3.2.2/lib /Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb test/unit
@@ -910,7 +916,7 @@ rspec ./test/unit/spec/nodejs_spec.rb:39 # cheftdd::nodejs install npm packages
 ```
 						</script>
 						<aside class="notes">
-							See tests for `nodejs` recipe fail
+							See tests for `recipes/nodejs.rb` recipe fail
 						</aside>
 					</section>
 					<section data-markdown>
