@@ -90,7 +90,7 @@
 
 				<section data-background="images/fractal_tree.svg">
 					<section id="fractal-demo-fragments">
-						<h2>How does this work?</h2>
+						<h2>Why?</h2>
 						<p>
 							<span class="fragment">no <i>PowerPoint-like</i> presentation</span><br />
 							<span class="fragment">using the mouse is boring </span><br />
@@ -108,7 +108,7 @@
 
 				<section data-background="images/fractal_tree.svg">
 					<section id="fractal-demo-fragments-1">
-						<h2>How does this Live-Demo work?</h2>
+						<h2>How?</h2>
 						<p>
 							<span class="fragment">Use TDD</span><br />
 							<span class="fragment">Write Chef Cookbook</span><br />
@@ -125,7 +125,7 @@
 				</section>
 
 				<section>
-					<h1>Before we get started...</h1>
+					<h2>Before we get started...</h2>
 					<section>&nbsp;</section>
 					<section data-background="images/Chef_Vertical_CCan_Reg.png" data-background-size="200px">
 						<aside class="notes">
@@ -177,7 +177,7 @@
 				</section>
 
 				<section>
-					<h1>Chef Overview</h1>
+					<h2>Chef Overview</h2>
 					<section>
 						&nbsp;
 						<aside class="notes">
@@ -208,7 +208,7 @@
 				</section>
 
 				<section>
-					<h1>Focus on this</h1>
+					<!-- <h1>Focus on this</h1> -->
 					<section data-background="images/chef-overview-3-crop.png" data-background-size="600px">
 						<!-- <img src="images/chef-overview-3-crop.png" style="height: 400px; margin-top:150px;"> -->
 						<aside class="notes">
@@ -219,7 +219,7 @@
 				</section>
 
 				<section>
-					<h2>Cooking with Chef</h2>
+					<!-- <h2>Cooking with Chef</h2> -->
 					<img src="images/code-and-test.png" style="height: 400px; margin-top:0px; border:0px;" />
 				</section>
 
@@ -243,7 +243,7 @@
 				</section>
 
 				<section>
-					<h1>Install Chef DK</h1>
+					<!-- <h1>Install Chef DK</h1> -->
 					<section>
 						<a href="https://downloads.chef.io/chef-dk/" target="_blank">
 							<img src="images/chef-dk.png" style="height: 400px; margin-top:0px; border:0px;" />
@@ -296,26 +296,26 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 				<section>
 					<h2>Project Specs</h2>
 					<section id="project-specs-fragments">
-						<h3>Goal</h3>
+						<h3 class="fragment">Goal</h3>
 						<p class="fragment">Deploy this Node.js presentation</p>
 						<h3 class="fragment">Tasks</h3>
 						<p class="fragment">Node.js should be installed</p>
 						<p class="fragment">Checkout Git repository</p>
 						<p class="fragment">Let the Internet access the web-server</p>
 						<p class="fragment">Web-server should not run as root</p>
-						<aside class="notes">
-							What do we want to achieve?
-
-							- The aim of the game is to deploy this Node.js presentation on a node.
-
-							How?
-
-							- Node.js should be installed in order to serve content.
-							- Checkout git-repository (did I say this is slide-deck is pure code? ;)
-							- Web server should be accessible on the Web
-							- Web server should not run as root
-						</aside>
 					</section>
+					<aside class="notes">
+						What do we want to achieve?
+
+						- The aim of the game is to deploy this Node.js presentation on a node.
+
+						How?
+
+						- Node.js should be installed in order to serve content.
+						- Checkout git-repository (did I say this is slide-deck is pure code? ;)
+						- Web server should be accessible on the Web
+						- Web server should not run as root
+					</aside>
 				</section>
 
 				<section>
@@ -506,8 +506,11 @@ All good!
 
 				<section>
 					<h2>Check style</h2>
-					<section>
-						Use Rake to run Rubocop and Foodcritic, in the right environment with Bundler
+					<section id="check-style-fragments">
+						<p class="fragment">Use <a href="http://rake.rubyforge.org/" target="_blank">Rake</a></p>
+						<p class="fragment">to run <a href="http://batsov.com/rubocop/" target="_blank">Rubocop</a> and <a href="http://acrmp.github.io/foodcritic/" target="_blank">Foodcritic</a></p>
+						<p class="fragment">in the right environment</p>
+						<p class="fragment">with <a href="http://bundler.io/" target="_blank">Bundler</a></p>
 						<aside class="notes">
 							run and check that bundle rake exec style is happy
 						</aside>
@@ -538,7 +541,7 @@ Need to fix something
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-Change *Mainteiner* and *email*, and try again:
+Change *Maintainer* and *email*, and try again:
 ```
 $ bundle exec rake style
 RACK008: Files expected by Support must exist: Berksfile.lock:0
