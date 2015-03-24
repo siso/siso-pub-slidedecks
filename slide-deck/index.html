@@ -1234,7 +1234,7 @@ nodejs-ubuntu-1404  Rackspace  ChefZero     Not Created
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-Get cracking on it:
+Create node
 ```
 # kitchen create
 ```
@@ -1245,7 +1245,7 @@ Get cracking on it:
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-Current status of nodes:
+Node status
 ```
 $ kitchen list
 Instance            Driver     Provisioner  Last Action
@@ -1258,7 +1258,7 @@ nodejs-ubuntu-1404  Rackspace  ChefZero     Created
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-Make them converge:
+Converge node
 ```
 # kitchen converge
 ```
@@ -1268,9 +1268,9 @@ Make them converge:
 						</aside>
 					</section>
 					<section id="kitchen-converge-fragments">
-						<h4>converge nodes</h4>
+						<h4>converge node</h4>
 						<p class="fragment">
-							run <font style="">chef-client</font> on nodes
+							run <font style="">chef-client</font> on node
 						</p>
 						<p class="fragment">
 							apply recipes
@@ -1278,7 +1278,7 @@ Make them converge:
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-Current status of nodes:
+Node status
 ```
 $ kitchen list
 Instance            Driver     Provisioner  Last Action
@@ -1291,7 +1291,7 @@ nodejs-ubuntu-1404  Rackspace  ChefZero     Converged
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-Eventually, run integration tests:
+Eventually, run integration tests
 ```
 # kitchen verify
 ```
@@ -1304,7 +1304,7 @@ Eventually, run integration tests:
 
 				<section>
 					<section>
-						All the above can be done with just:
+						<h2>All in one go</h2>
 						<p class="fragment" style="font-family:'Courier New'">
 							$ kitchen test
 						</p>
@@ -1340,7 +1340,7 @@ Eventually, run integration tests:
 				</section>
 
 				<section>
-					<h1>Links</h1>
+					<h2>Links</h2>
 					<span style="text-align: left;">
 						<small>
 							- <a href="https://docs.chef.io/chef_overview.html" target="_blank">An Overview of Chef</a><br>
