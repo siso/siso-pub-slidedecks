@@ -44,7 +44,7 @@
 
 				<section>
 					<h1>TDD with Chef</h1>
-					<h3>Fun with <strike>flags</strike> testing</h3>
+					<h3 style="color:#888">Fun with <strike>flags</strike> testing</h3>
 					<p>
 						<small>Created by <a href="http://au.linkedin.com/in/simonesoldateschi" target="_blank">Simone Soldateschi</a> / <a href="http://twitter.com/soldasimo" target="_blank">@soldasimo</a></small>
 					</p>
@@ -117,7 +117,7 @@
 							<span class="fragment">Leverage Vagrant</span><span class="fragment">, Docker</span><span class="fragment">, or Cloud Server</span><br />
 							<span class="fragment">Run this very presentation</span><br />
 							<span class="fragment">&nbsp;&nbsp;&nbsp;&nbsp;</span><br />
-							<span class="fragment">Kinda <i>recursive, isn't it? ;)</i></span><br />
+							<span class="fragment">Kinda <i>recursive</i>, isn't it? ;)</span><br />
 						</p>
 						<aside class="notes">
 							So in the end this presewntation is about using TDD, to write code, which runs on any systems, to tell you how to run itself. Kinda <i>recursive</i>, isn't it! ;)
@@ -621,7 +621,7 @@ OK!
 				</section>
 
 				<section>
-					<h2>TDD, and BDD</h2>
+					<!-- <h2>TDD, and BDD</h2> -->
 					<section id="tdd-bdd-serverspec-fragments">
 						<a href="http://serverspec.org/" target="_blank">
 							<img src="images/serverspec.png" style="margin-top:100px; border:0px;">
@@ -651,7 +651,7 @@ OK!
 						</p>
 					</section>
 					<section>
-						Say default recipe should:<br><br>
+						Default recipe should<br><br>
 						<ul>
 							<li>update the package-manager database</li>
 							<li>upgrade packages</li>
@@ -671,7 +671,7 @@ OK!
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						Then write a test:
+						Then write a test
 ```
 $ cat test/unit/spec/default_spec.rb
 
@@ -691,7 +691,7 @@ end
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						Look at it failing:
+						it fails
 ```
 $ bundle exec rake spec
 /opt/chefdk/embedded/bin/ruby -I/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/lib:/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-support-3.2.2/lib /Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb test/unit
@@ -725,7 +725,7 @@ rspec ./test/unit/spec/default_spec.rb:22 # cheftdd::default executes apt-get up
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-Write code to pass the test:
+Write code to pass the test
 ```
 #
 # Cookbook Name:: cheftdd
@@ -748,7 +748,7 @@ end
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						Run the test again:
+						Run the test again
 ```
 $ bundle exec rake spec
 /opt/chefdk/embedded/bin/ruby -I/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/lib:/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-support-3.2.2/lib /Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb test/unit
@@ -828,7 +828,7 @@ Deploy [reveal.js](https://github.com/hakimel/reveal.js#installation):
 						</aside>
 					</section>
 					<section id="rspec-filenaming-schema-fragments">
-						<h4>File-naming schema for RSpec tests</h4>
+						<h4>File-naming schema</h4>
 						<p class="fragment" style="font-family:'Courier New'">
 							recipes/nodejs.rb
 						</p>
@@ -1017,9 +1017,6 @@ Finished in 1.06 seconds (files took 2.51 seconds to load)
 							pending
 						</aside>
 					</section>
-					<section data-background="#ffffff">
-						<img src="images/meme-like_a_boss.jpg" style="height: 500px; margin-top:100px; border:0px;" /><br>
-					</section>
 				</section>
 
 				<section>
@@ -1132,7 +1129,7 @@ suites:
 				</section>
 
 				<section>
-					<h2>KitchenCI - Node lifecycle</h2>
+					<h2><!-- KitchenCI -  -->Node lifecycle</h2>
 					<section data-markdown>
 						<script type="text/template">
 Current status of nodes:
@@ -1206,14 +1203,14 @@ nodejs-ubuntu-1404  Rackspace  ChefZero     Converged
 				</section>
 
 				<section>
-					<h2>Write Integration Tests</h2>
+					<h2>Integration Tests</h2>
 					<section id="write-integration-tests-fragments">
 						<h4 class="fragment">File-naming schema</h4>
 						<p class="fragment" style="font-family:'Courier New'">
 							test/integration/SUITE/rspec/WHATEVER_spec.rb
 						</p>
 						<p class="fragment">
-							here:
+							&#x21D3;
 						</p>
 						<p class="fragment" style="font-family:'Courier New'">
 							recipes/nodejs.rb
@@ -1325,6 +1322,9 @@ $ kitchen verify
 -----> Kitchen is finished. (0m11.06s)
 ```
 						</script>
+					</section>
+					<section data-background="#ffffff">
+						<img src="images/meme-like_a_boss.jpg" style="height: 500px; margin-top:100px; border:0px;" /><br>
 					</section>
 					<section data-markdown>
 						<script type="text/template">

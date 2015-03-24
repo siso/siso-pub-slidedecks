@@ -35,3 +35,4 @@ $ docker stop slidedeck-cheftdd
 ## TODO
 
 - Fix speaker's notes
+- Image is broken, http://0.0.0.0:9999/slide-deck/#/35/1
