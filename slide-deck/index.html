@@ -1126,6 +1126,80 @@ suites:
 				</section>
 
 				<section>
+					<h2>KitchenCI - Node lifecycle</h2>
+					<section data-markdown>
+						<script type="text/template">
+Current status of nodes:
+```
+$ kitchen list
+Instance            Driver     Provisioner  Last Action
+nodejs-ubuntu-1404  Rackspace  ChefZero     Not Created
+```
+						</script>
+						<aside class="notes">
+							...
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Create node
+```
+# kitchen create
+```
+						</script>
+						<aside class="notes">
+							...
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Node status
+```
+$ kitchen list
+Instance            Driver     Provisioner  Last Action
+nodejs-ubuntu-1404  Rackspace  ChefZero     Created
+```
+						</script>
+						<aside class="notes">
+							It's just a vanilla server
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Converge node
+```
+# kitchen converge
+```
+						</script>
+						<aside class="notes">
+							...
+						</aside>
+					</section>
+					<section id="kitchen-converge-fragments">
+						<h4>converge node</h4>
+						<p class="fragment">
+							run <font style="">chef-client</font> on node
+						</p>
+						<p class="fragment">
+							apply recipes
+						</p>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Node status
+```
+$ kitchen list
+Instance            Driver     Provisioner  Last Action
+nodejs-ubuntu-1404  Rackspace  ChefZero     Converged
+```
+						</script>
+						<aside class="notes">
+							...
+						</aside>
+					</section>
+				</section>
+
+				<section>
 					<h2>Write Integration Tests</h2>
 					<section id="write-integration-tests-fragments">
 						<h4 class="fragment">File-naming schema</h4>
@@ -1218,77 +1292,7 @@ end
 				</section>
 
 				<section>
-					<h2>Integration Testing with KitchenCI</h2>
-					<section data-markdown>
-						<script type="text/template">
-Current status of nodes:
-```
-$ kitchen list
-Instance            Driver     Provisioner  Last Action
-nodejs-ubuntu-1404  Rackspace  ChefZero     Not Created
-```
-						</script>
-						<aside class="notes">
-							...
-						</aside>
-					</section>
-					<section data-markdown>
-						<script type="text/template">
-Create node
-```
-# kitchen create
-```
-						</script>
-						<aside class="notes">
-							...
-						</aside>
-					</section>
-					<section data-markdown>
-						<script type="text/template">
-Node status
-```
-$ kitchen list
-Instance            Driver     Provisioner  Last Action
-nodejs-ubuntu-1404  Rackspace  ChefZero     Created
-```
-						</script>
-						<aside class="notes">
-							It's just a vanilla server
-						</aside>
-					</section>
-					<section data-markdown>
-						<script type="text/template">
-Converge node
-```
-# kitchen converge
-```
-						</script>
-						<aside class="notes">
-							...
-						</aside>
-					</section>
-					<section id="kitchen-converge-fragments">
-						<h4>converge node</h4>
-						<p class="fragment">
-							run <font style="">chef-client</font> on node
-						</p>
-						<p class="fragment">
-							apply recipes
-						</p>
-					</section>
-					<section data-markdown>
-						<script type="text/template">
-Node status
-```
-$ kitchen list
-Instance            Driver     Provisioner  Last Action
-nodejs-ubuntu-1404  Rackspace  ChefZero     Converged
-```
-						</script>
-						<aside class="notes">
-							...
-						</aside>
-					</section>
+					<h2>KitchenCI - Integration Tests</h2>
 					<section data-markdown>
 						<script type="text/template">
 Eventually, run integration tests
@@ -1296,9 +1300,70 @@ Eventually, run integration tests
 # kitchen verify
 ```
 						</script>
-						<aside class="notes">
-							...
-						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ kitchen verify
+-----> Starting Kitchen (v1.3.1)
+-----> Setting up <nodejs-ubuntu-1404>...
+-----> Setting up Busser
+...
+-----> Verifying <nodejs-ubuntu-1404>...
+...
+-----> Running rspec test suite
+...
+       Finished in 0.09244 seconds
+       4 examples, 0 failures
+       Finished verifying <nodejs-ubuntu-1404> (0m2.94s).
+-----> Kitchen is finished. (0m11.06s)
+```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Full output:
+```
+$ kitchen verify
+-----> Starting Kitchen (v1.3.1)
+-----> Setting up <nodejs-ubuntu-1404>...
+-----> Setting up Busser
+       Creating BUSSER_ROOT in /tmp/busser
+       Creating busser binstub
+       Plugin rspec already installed
+       Finished setting up <nodejs-ubuntu-1404> (0m3.09s).
+-----> Verifying <nodejs-ubuntu-1404>...
+       Removing /tmp/busser/suites/rspec
+       Uploading /tmp/busser/suites/rspec/Gemfile (mode=0644)
+       Uploading /tmp/busser/suites/rspec/nodejs_spec.rb (mode=0644)
+       Uploading /tmp/busser/suites/rspec/spec_helper.rb (mode=0644)
+-----> Running rspec test suite
+                run  PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/tmp/busser/gems/bin; bundle install --local || bundle install from "."
+       Don't run Bundler as root. Bundler can ask for sudo if it is needed, and
+       installing your bundle as root will break this application for all non-root
+       users on this machine.
+       Resolving dependencies...
+       Using diff-lcs 1.2.5
+       Using highline 1.7.1
+       Using net-ssh 2.9.2
+       Using rspec-core 2.99.2
+       Using rspec-expectations 2.99.2
+       Using rspec-mocks 2.99.3
+       Using rspec 2.99.0
+       Using rspec-its 1.0.1
+       Using specinfra 1.27.5
+       Using serverspec 1.16.0
+       Using bundler 1.9.1
+       Bundle complete! 1 Gemfile dependency, 11 gems now installed.
+       Use `bundle show [gemname]` to see where a bundled gem is installed.
+       ....
+
+       Finished in 0.09244 seconds
+       4 examples, 0 failures
+       Finished verifying <nodejs-ubuntu-1404> (0m2.94s).
+-----> Kitchen is finished. (0m11.06s)
+```
+						</script>
 					</section>
 				</section>
 
