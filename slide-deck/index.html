@@ -77,6 +77,7 @@
 							<span class="fragment">see them fail</span><br />
 							<span class="fragment">write code to pass tests</span><br />
 							<span class="fragment">&nbsp;</span>
+							<span class="fragment" style="color:#555"><i>...still waiting...</i></span>
 						</p>
 						<h2 class="fragment">Sounds weird? ;)</h2>
 					</section>
@@ -125,10 +126,12 @@
 				</section>
 
 				<section>
-					<h2>Before we get started...</h2>
+					<h2>What do you use?</h2>
 					<section>&nbsp;</section>
 					<section data-background="images/Chef_Vertical_CCan_Reg.png" data-background-size="200px">
 						<aside class="notes">
+							Before we get started...
+
 							- How many of you are learning Chef?
 							- How many of you use Chef in production?
 								- Chef Server, or Chef Manage?
@@ -149,13 +152,16 @@
 
 				<section>
 					<section id="coding-1-fragments">
-						<h2>"The" Usual way of coding</h2>
+						<h2>"The Usual" deploy workflow</h2>
 						<p>
 							<span class="fragment">start coding</span><br />
 							<span class="fragment">compile it</span><br />
 							<span class="fragment">deploy artifacts</span><br />
 							<span class="fragment">looks good?</span><br />
 							<span class="fragment">&nbsp;</span>
+							<span class="fragment" style="color:#555"><i>wait</i></span>
+							<span class="fragment">&nbsp;</span>
+							<span class="fragment" style="color:#555"><i>...still waiting...</i></span>
 						</p>
 						<h2 class="fragment">Reactive approach</h2>
 						<aside class="notes">
@@ -347,7 +353,7 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							Manually
+							**Manually**
 
 							```shell
 							$ cd cookbooks
@@ -362,7 +368,7 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 							> version          '0.1.0'
 							> EOF
 							```
-							*...are you kidding?*
+							*...are you kidding me?*
 						</script>
 						<aside class="notes">
 							It's a manual task, then it's prone to errors
@@ -370,7 +376,7 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							knife
+							**knife**
 							```shell
 							$ knife cookbook create foo
 							** Creating cookbook foo in /Users/siso/.chef/cookbooks
@@ -497,6 +503,9 @@ All good!
 				<section>
 					<h2>Foodcritic</h2>
 					<a href="http://acrmp.github.io/foodcritic/" target="_blank">Foodcritic</a> is a lint tool for your Opscode Chef cookbooks.
+					<aside class="notes">
+						perform static analysis of source code
+					</aside>
 				</section>
 
 				<section>
@@ -573,7 +582,7 @@ Fetching cookbook index from https://supermarket.chef.io...
 Using cheftdd (0.1.0) from source at .
 ```
 
-and remove it from `.gitignore`.
+and let Git handle it
 						</script>
 					</section>
 					<section data-markdown>
@@ -607,21 +616,36 @@ OK!
 
 				<section>
 					<h2>TDD, and BDD</h2>
-					<section>
-						<img src="images/serverspec.png" style="margin-top:100px; border:0px;">
+					<section id="tdd-bdd-serverspec-fragments">
+						<a href="http://serverspec.org/" target="_blank">
+							<img src="images/serverspec.png" style="margin-top:100px; border:0px;">
+						</a>
 						<br>
-						<a href="http://serverspec.org/" target="_blank">Serverspec</a> allows to write RSpec tests for checking your servers are configured correctly.
+						<p class="fragment">
+							 write RSpec tests
+						</p>
+						<p class="fragment">
+							 check servers are configured correctly
+						</p>
+					</section>
+					<section id="tdd-bdd-rspec-fragments">
+						<a href="http://rspec.info/" target="_blank">
+							<img src="images/rspec.png" style="margin-top:100px; border:0px;">
+						</a>
+						<p>
+							<a href="http://rspec.info/" target="_blank">
+								RSpec
+							</a>
+						</p>
+						<p class="fragment">
+							Behaviour Driven Development for Ruby
+						</p>
+						<p class="fragment">
+							Making TDD Productive and Fun
+						</p>
 					</section>
 					<section>
-						<img src="images/rspec.png" style="margin-top:100px; border:0px;">
-						<br>
-						<a href="http://rspec.info/" target="_blank">RSpec</a><br>
-						Behaviour Driven<br>
-						Development for Ruby.<br>
-						Making TDD Productive and Fun.
-					</section>
-					<section>
-						Let's say the the default recipe should:<br><br>
+						Say default recipe should:<br><br>
 						<ul>
 							<li>update the package-manager database</li>
 							<li>upgrade packages</li>
@@ -695,7 +719,7 @@ rspec ./test/unit/spec/default_spec.rb:22 # cheftdd::default executes apt-get up
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-Write code which passes the test:
+Write code to pass the test:
 ```
 #
 # Cookbook Name:: cheftdd
@@ -1199,15 +1223,19 @@ At last run integration tests:
 								<tr>
 									<td>The Big Bang Theory</td>
 									<td>1</td>
-								<tr>
+								</tr>
 								<tr>
 									<td>Breaking Bad</td>
 									<td>1</td>
+								</tr>
 								<tr>
+									<td>How I Met Your Mother</td>
+									<td>2</td>
+								</tr>
 								<tr>
 									<td>Matrix</td>
 									<td>1</td>
-								<tr>
+								</tr>
 							</tbody>
 					</table>
 				</section>
