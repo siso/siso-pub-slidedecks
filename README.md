@@ -31,3 +31,7 @@ $ docker stop slidedeck-cheftdd
 ## Links
 
 - [Presenting with Docker](http://kartar.net/2014/05/presenting-with-docker/) by James Turnbull
+
+## TODO
+
+- Fix speaker's notes
