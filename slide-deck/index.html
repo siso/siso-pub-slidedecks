@@ -325,7 +325,7 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 				</section>
 
 				<section>
-					<h2>Chef Supermarket</h2>
+					<!-- <h2>Chef Supermarket</h2> -->
 					<section>
 						<a href="https://supermarket.chef.io/" target="_blank">
 							<img src="images/chef-supermarket.png" style="height: 600px; margin-top:75px; border:0px;" />
@@ -357,7 +357,7 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 
 							```shell
 							$ cd cookbooks
-							$ mkdir attributes recipes
+							$ mkdir -p foo/attributes foo/recipes
 							$ cat > foo/metadata.rb << EOF
 							> name             'foo'
 							> maintainer       'YOUR_COMPANY_NAME'
@@ -368,11 +368,13 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 							> version          '0.1.0'
 							> EOF
 							```
-							*...are you kidding me?*
 						</script>
 						<aside class="notes">
 							It's a manual task, then it's prone to errors
 						</aside>
+					</section>
+					<section>
+						<i>...are you kidding me?!</i>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
@@ -542,7 +544,7 @@ Inspecting 2 files
 2 files inspected, no offenses detected
 ```
 
-Need to fix something
+*Need to fix something*
 						</script>
 						<aside class="notes">
 							Address quickly common issues that might have when trying to converge
@@ -564,7 +566,7 @@ Inspecting 2 files
 2 files inspected, no offenses detected
 ```
 
-It's better
+*It's better*
 						</script>
 						<aside class="notes">
 							Address quickly common issues that might have when trying to converge
@@ -760,8 +762,7 @@ ChefSpec Coverage report generated...
 
 You are awesome and so is your test coverage! Have a fantastic day!
 ```
-
-and see it pass the test!
+*it's OK!*
 					</script>
 					<aside class="notes">
 						...
@@ -777,8 +778,14 @@ and see it pass the test!
 
 				<section>
 					<h2>'nodejs' recipe</h2>
-					<section>
-						Install Node.js, and deploy web-app
+					<section id="install-nodejs-deploy-webapp-fragments">
+						<p class="fragment">
+							Install Node.js<br>
+						</p>
+						<p class="fragment">
+							+<br>
+							deploy web-app
+						</p>
 						<aside class="notes">
 							- Server is now updated, Node.js can be installed<br>
 							- Need to install Node.js, install packages with npm, grunt and all that jazz<br>
@@ -921,7 +928,7 @@ rspec ./test/unit/spec/nodejs_spec.rb:39 # cheftdd::nodejs install npm packages
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-Install Node.js using `nodejs::default` recipe:
+Install [Node.js](https://nodejs.org/)
 ```
 #
 # Cookbook Name:: cheftdd-demo
@@ -951,7 +958,7 @@ end
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-Install [reveal.js](https://github.com/hakimel/reveal.js) by cloning GitHub repository:
+Install [reveal.js](https://github.com/hakimel/reveal.js)
 ```
 package 'git' do
   action :install
@@ -971,7 +978,7 @@ end
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-Resolve dependencies for *reveal.js*:
+Resolve dependencies
 ```
 execute 'install npm packages' do
   command 'npm install'
@@ -1230,7 +1237,10 @@ Eventually, run integration tests:
 					<section>
 						All the above can be done with just:
 						<p class="fragment" style="font-family:'Courier New'">
-							$ kitchen test
+							<b>$ kitchen test</b>
+						</p>
+						<p class="fragment" style="font-family:'Courier New'">
+							<font style="color:#555">«ha ah»</font>
 						</p>
 					</section>
 					<section id="test-kitchen-just-test-fragments">
@@ -1241,8 +1251,21 @@ Eventually, run integration tests:
 							&#x21D3;<br>
 							$ kitchen destroy
 						</p>
-						<p style="color:#555">
-							«ha ah»
+						<p class="fragment" style="font-family:'Courier New'">
+							&#x21D3;<br>
+							$ kitchen create
+						</p>
+						<p class="fragment" style="font-family:'Courier New'">
+							&#x21D3;<br>
+							$ kitchen converge
+						</p>
+						<p class="fragment" style="font-family:'Courier New'">
+							&#x21D3;<br>
+							$ kitchen verify
+						</p>
+						<p class="fragment" style="font-family:'Courier New'">
+							&#x21D3;<br>
+							$ kitchen destroy
 						</p>
 					</section>
 				</section>
