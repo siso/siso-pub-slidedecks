@@ -1143,9 +1143,78 @@ suites:
 							test/integration/nodejs/rspec/nodejs_spec.rb
 						</p>
 					</section>
-					<aside class="notes">
-						...
-					</aside>
+					<section id="write-integration-tests-0">
+						<h4 class="fragment">Recipe</h4>
+						<pre class="fragment">
+# install nodejs, from package by default
+include_recipe 'nodejs'
+						</pre>
+						<h4 class="fragment">Test</h4>
+						<pre class="fragment">
+describe command('nodejs --version') do
+  its(:stdout) { should match(/v0.10.37/) }
+end
+						</pre>
+					</section>
+					<section id="write-integration-tests-0">
+						<h4 class="fragment">Recipe</h4>
+						<pre class="fragment">
+package 'git' do
+  action :install
+end
+						</pre>
+						<h4 class="fragment">Test</h4>
+						<pre class="fragment">
+describe package('git') do
+  it { should be_installed }
+end
+						</pre>
+					</section>
+					<section id="write-integration-tests-0">
+						<h4 class="fragment">Recipe</h4>
+						<pre class="fragment">
+execute 'clone reveal.js GitHub repository' do
+  command 'git clone https://github.com/hakimel/reveal.js.git'
+  action :run
+  cwd '/opt'
+  not_if { File.exist?('/opt/reveal.js') }
+end
+						</pre>
+						<h4 class="fragment">Test</h4>
+						<pre class="fragment">
+describe file('/opt/reveal.js') do
+  it { should be_directory }
+end
+						</pre>
+					</section>
+					<section id="write-integration-tests-0">
+						<h4 class="fragment">Recipe</h4>
+						<pre class="fragment">
+execute 'start serving node.js app' do
+  command 'grunt serve --port 80 &'
+  action :run
+  cwd '/opt/reveal.js'
+end
+						</pre>
+						<h4 class="fragment">Test</h4>
+						<pre class="fragment">
+describe port('80') do
+  it { should be_listening }
+end
+						</pre>
+					</section>
+					<section id="write-integration-tests-0">
+						<h4 class="fragment">Recipe</h4>
+						<pre class="fragment">
+add_iptables_rule('INPUT', '-p tcp -m state --state NEW --dport 80 -s 0.0.0.0/0 -j ACCEPT', 50, 'Allow the Internet access the web-server')
+						</pre>
+						<h4 class="fragment">Test</h4>
+						<pre class="fragment">
+describe iptables do
+  it { should have_rule('-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -m comment --comment "Allow the Internet access the web-server" -j ACCEPT').with_chain('INPUT') }
+end
+						</pre>
+					</section>
 				</section>
 
 				<section>
