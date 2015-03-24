@@ -1022,16 +1022,21 @@ Finished in 1.06 seconds (files took 2.51 seconds to load)
 				</section>
 
 				<section>
-					<h2>Test Kitchen - KitchenCI</h2>
+					<h2>Test Kitchen</h2>
+					<section>
+						<a href="http://kitchen.ci/" target="_blank">
+							<img src="images/test-kitchen-homepage.png" style="border:0px; height: 600px; margin-top:100px;">
+						</a>
+					</section>
 					<section id="testkitchen-fragments">
 						<span>
 							- run Integration Tests<br>
 						</span>
 						<span class="fragment">
-							- awesome documentation<br>
+							- awesome <a href="http://kitchen.ci/docs/getting-started/" target="_blank">documentation</a><br>
 						</span>
 						<span class="fragment">
-							on <a href="http://kitchen.ci/" target="_blank">kitchen.ci</a> - have a read!<br>
+							<i>have a read!</i>
 						</span>
 					</section>
 					<aside class="notes">
@@ -1045,7 +1050,6 @@ Finished in 1.06 seconds (files took 2.51 seconds to load)
 					<h2>.kitchen.yml</h2>
 					<section data-markdown>
 						<script type="text/template">
-Specify the driver to use:
 ```
 ---
 driver:
@@ -1060,7 +1064,6 @@ driver:
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-the *provisioner*:
 ```
 provisioner:
   name: chef_zero
@@ -1086,19 +1089,17 @@ provisioner:
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-platforms to run tests on:
 ```
 platforms:
   - name: ubuntu-14.04
 ```
 						</script>
 						<aside class="notes">
-							...
+							platforms to run tests on
 						</aside>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-at last *suites*:
 ```
 suites:
   - name: default
@@ -1141,17 +1142,18 @@ Make them converge:
 							...
 						</aside>
 					</section>
-					<section data-markdown>
-						<script type="text/template">
-Make them **converge**, meaning let `chef-client` run on nodes, apply recipes, attributes and all that jazz.
-						</script>
-						<aside class="notes">
-							...
-						</aside>
+					<section id="kitchen-converge-fragments">
+						<h4>converge nodes</h4>
+						<p class="fragment">
+							run <font style="">chef-client</font> on nodes
+						</p>
+						<p class="fragment">
+							apply recipes
+						</p>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-At last run integration tests:
+Run integration tests:
 ```
 # kitchen verify
 ```
