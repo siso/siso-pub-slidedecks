@@ -407,7 +407,6 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 							```
 							$ berks cookbook cheftdd
 							```
-							*Get off on the right foot!*
 						</script>
 						<aside class="notes">
 							What is Berkshelf?<br>
@@ -418,6 +417,9 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 
 							It's a package manager, and dependency resolver
 						</aside>
+					</section>
+					<section>
+						<i>Get off on the right foot!</i>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
@@ -1433,6 +1435,70 @@ $ kitchen verify
 						<p class="fragment" style="font-family:'Courier New'">
 							&#x21D3;<br>
 							$ kitchen destroy
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1 style="font-size:200px">Recap</h1>
+					</section>
+					<section>
+						<p class="fragment">
+							<i>write unit-tests</i>
+						</p>
+						<p class="fragment">
+							&#x21D3;<br>
+							<i>implement features</i>
+						</p>
+					</section>
+					<section>
+						<p class="fragment">
+							<i>run unit-tests</i>
+						</p>
+						<p class="fragment" style="font-family:'Courier New'">
+							&#x21D3;<br>
+							$ bundle exec rake style
+						</p>
+						<p class="fragment" style="font-family:'Courier New'">
+							&#x21D3;<br>
+							$ bundle exec rake spec
+						</p>
+						<p class="fragment">
+							<i>KO? fix it!</i>
+						</p>
+						<p class="fragment">
+							<i>OK? move on</i>
+						</p>
+					</section>
+					<section>
+						<p class="fragment">
+							<i>write integration-tests</i>
+						</p>
+						<p class="fragment">
+							&#x21D3;<br>
+							<i>run integration-tests</i>
+						</p>
+					</section>
+					<section>
+						<p class="fragment" style="font-family:'Courier New'">
+							$ kitchen create
+						</p>
+						<p class="fragment" style="font-family:'Courier New'">
+							&#x21D3;<br>
+							$ kitchen converge
+						</p>
+						<p class="fragment" style="font-family:'Courier New'">
+							&#x21D3;<br>
+							$ kitchen verify
+						</p>
+						<p class="fragment">
+							&#x21D3;<br>
+							<i>KO? fix it!</i>
+						</p>
+						<p class="fragment">
+							&#x21D3;<br>
+							<i>OK? done</i>
 						</p>
 					</section>
 				</section>
