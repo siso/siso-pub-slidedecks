@@ -83,7 +83,7 @@
 					</section>
 				</section>
 
-				<section data-background="images/morpheus_demo.jpg">
+				<section data-background="images/morpheus_demo.jpg" data-background-size="1024px">
 					<aside class="notes">
 						This slide has fragments which are also stepped through in the notes window.
 					</aside>
@@ -162,6 +162,7 @@
 							<span class="fragment" style="color:#555"><i>wait</i></span>
 							<span class="fragment">&nbsp;</span>
 							<span class="fragment" style="color:#555"><i>...still waiting...</i></span>
+							<span class="fragment">any issues?</span>
 						</p>
 						<h2 class="fragment">Reactive approach</h2>
 						<aside class="notes">
@@ -255,7 +256,7 @@
 							<img src="images/chef-dk.png" style="height: 400px; margin-top:0px; border:0px;" />
 						</a>
 						<aside class="notes">
-							First thing first: install <b>Chef DK</b>.
+							First thing first: install <b>Chef DK</b><br>
 							It is a package which provides developers with all the tools to start developing and testing cookbooks.
 						</aside>
 					</section>
@@ -326,6 +327,13 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 
 				<section>
 					<!-- <h2>Chef Supermarket</h2> -->
+					<section>
+						<img src="images/board-114656_640.jpg" style="height: 600px; margin-top:75px; border:0px;" />
+						<aside class="notes">
+							Start from scratch?<br>
+							Re-invent the wheel?<br>
+						</aside>
+					</section>
 					<section>
 						<a href="https://supermarket.chef.io/" target="_blank">
 							<img src="images/chef-supermarket.png" style="height: 600px; margin-top:75px; border:0px;" />
@@ -402,7 +410,13 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 							*Get off on the right foot!*
 						</script>
 						<aside class="notes">
-							Get off on the right foot, and start new cookbook the right way, with Berkshelf
+							What is Berkshelf?<br>
+
+							Let me give you an example:<br>
+
+							Berkshelf is to Chef, what APT is to Debian, or Yum to RedHat<br>
+
+							It's a package manager, and dependency resolver
 						</aside>
 					</section>
 					<section data-markdown>
@@ -439,9 +453,11 @@ create  cheftdd/Vagrantfile
 							```
 						</script>
 						<aside class="notes">
-							See Berkshelf's output
+							The skeleton of new cookbook is available<br>
 
-							Now the very basic skeleton of new cookbook is available
+							Also, it templates files for KitchenCI, Vagrant, and testing<br>
+							so that it is possible to start developing cookbooks proficiently<br>
+							right away.
 						</aside>
 					</section>
 				</section>
@@ -614,9 +630,15 @@ OK!
 						<img src="images/love-the-unit-test.jpg" style="height: 500px; margin-top:100px; border:0px;" />
 					</section>
 					<aside class="notes">
-						What is it about?
-						Why?
-						How?
+						What is it about?<br>
+						Why?<br>
+						How?<br>
+						<br>
+						<br>
+						We have Project Specs<br>
+						<br>
+						With Unit Tests we know that we performed all actions required from Project Specs<br>
+						We have to write tests to be sure that we tick all the boxes, from Project Specs.
 					</aside>
 				</section>
 
@@ -1003,7 +1025,7 @@ end
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-Write `nodejs` recipe:
+Test `nodejs` recipe:
 ```
 $ bundle exec rake spec
 /opt/chefdk/embedded/bin/ruby -I/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/lib:/Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-support-3.2.2/lib /Users/siso/.chefdk/gem/ruby/2.1.0/gems/rspec-core-3.2.2/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb test/unit
@@ -1012,6 +1034,7 @@ $ bundle exec rake spec
 Finished in 1.06 seconds (files took 2.51 seconds to load)
 6 examples, 0 failures
 ```
+*Great, it's OK!*
 						</script>
 						<aside class="notes">
 							pending
@@ -1025,9 +1048,13 @@ Finished in 1.06 seconds (files took 2.51 seconds to load)
 						<img src="images/experiment-meme.jpg" style="height: 500px; margin-top:100px; border:0px;" />
 					</section>
 					<aside class="notes">
-						What is it about?
-						Why?
-						How?
+						What is it about?<br>
+						Why?<br>
+						How?<br>
+						<br>
+						<br>
+						With Unit Tests we know that we performed all actions required from Project Specs<br>
+						With Integration Tests we test that systems run as expected.<br>
 					</aside>
 				</section>
 
@@ -1213,7 +1240,7 @@ nodejs-ubuntu-1404  Rackspace  ChefZero     Converged
 							&#x21D3;
 						</p>
 						<p class="fragment" style="font-family:'Courier New'">
-							recipes/nodejs.rb
+							KitchenCI SUITE: nodejs
 						</p>
 						<p class="fragment" style="font-family:'Courier New'">
 							&#x21D3;<br>
@@ -1414,6 +1441,7 @@ $ kitchen verify
 					<h2>Links</h2>
 					<span style="text-align: left;">
 						<small>
+							- <i>click links on this slide-deck</i><br>
 							- <a href="https://docs.chef.io/chef_overview.html" target="_blank">An Overview of Chef</a><br>
 							- <a href="https://downloads.chef.io/chef-dk/" target="_blank">Install Chef DK</a><br>
 							- <a href="https://speakerdeck.com/nathenharvey/tdd-with-chef" target="_blank">TDD with Chef, by Nathen Harvey</a><br>
@@ -1428,7 +1456,7 @@ $ kitchen verify
 						<img src="images/automate-all-the-things_360.png" style="height: 500px; margin-top:100px; border:0px;" />
 					</section>
 					<section>
-						<img src="images/tests-everywhere.jpg" style="height: 500px; margin-top:100px; border:0px;" />
+						<img src="images/tests-eveywhere.jpg" style="height: 400px; margin-top:100px; border:0px;" />
 					</section>
 					<section>
 						<img src="images/I-know-TDD.jpg" style="height: 500px; margin-top:100px; border:0px;" />
