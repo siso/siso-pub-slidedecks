@@ -57,12 +57,14 @@
 					<p>
 						<small>
 							- <b>Snr DevOps Engineer</b> based in Sydney<br />
-							- Leading DevOps Engineering Team at Rackspace AU<br />
-							- 15 years of experience as:<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;- SysAdmin<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;- SoftwareEng<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;- SysEng<br />
-							- Been DevOps'in for the last 5-ish years<br />
+							- Leading DevOps Engineering Team at <a =href="" _target="http://www.rackspace.com/">Rackspace AU</a><br />
+							<font style="color:#aaa	">
+								- 15 years of experience as:<br />
+								&nbsp;&nbsp;&nbsp;&nbsp;- SysAdmin<br />
+								&nbsp;&nbsp;&nbsp;&nbsp;- SoftwareEng<br />
+								&nbsp;&nbsp;&nbsp;&nbsp;- SysEng<br />
+								- Been DevOps'in for the last 5-ish years<br />
+							</font>
 						</small>
 					</p>
 				</section>
@@ -273,19 +275,32 @@
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							That might save you from headaches ([Chef Docs](https://docs.chef.io/install_dk.html)):
+							Default Ruby interpreter
 ```
 $ which ruby
-/opt/chefdk/embedded/bin/ruby
+/usr/bin/ruby
 ```
 						</script>
 						<aside class="notes">
-							Use ruby provided by Chef DK
+							.
 						</aside>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							and that too:
+							Save you from headaches ([Chef Docs](https://docs.chef.io/install_dk.html))
+```
+$ chef exec which ruby
+/opt/chefdk/embedded/bin/ruby
+```
+						</script>
+						<aside class="notes">
+							Use ruby provided by Chef DK<br>
+							this session only
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							Permanent settings
 ```
 $ chef shell-init bash
 export PATH="/opt/chefdk/bin:/Users/siso/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/opt/chefdk/bin:/Users/siso/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -295,7 +310,8 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 ```
 						</script>
 						<aside class="notes">
-							Add that to "~/.bashrc", "~/.bash_profile" or whatever your shell uses
+							Add that to "~/.bashrc", "~/.bash_profile", or whatever your shell uses<br>
+							make settings permanent
 						</aside>
 					</section>
 				</section>
