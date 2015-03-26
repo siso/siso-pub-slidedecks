@@ -28,6 +28,14 @@ $ docker start slidedeck-cheftdd
 $ docker stop slidedeck-cheftdd
 ```
 
+## Export as PDF
+
+Point web browser to:
+
+- http://localhost:9999/slide-deck/?print-pdf
+
+Print, and select "save as PDF".
+
 ## Links
 
 - [Presenting with Docker](http://kartar.net/2014/05/presenting-with-docker/) by James Turnbull
