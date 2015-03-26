@@ -441,7 +441,37 @@ export GEM_PATH="/Users/siso/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/rub
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							**Berkshelf**
+							**Berkshelf** (full output)
+							```
+$ berks cookbook cheftdd
+...
+create  cheftdd/attributes
+...
+create  cheftdd/recipes
+...
+create  cheftdd/metadata.rb
+...
+create  cheftdd/Berksfile
+...
+create  .kitchen.yml
+...
+create  test/integration/default
+...
+You must run `bundle install' to fetch any new gems.
+create  cheftdd/Vagrantfile
+							```
+						</script>
+						<aside class="notes">
+							The skeleton of new cookbook is available<br>
+
+							Also, it templates files for KitchenCI, Vagrant, and testing<br>
+							so that it is possible to start developing cookbooks proficiently<br>
+							right away.
+						</aside>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							**Berkshelf** (full output)
 							```
 $ berks cookbook cheftdd
 create  cheftdd/files/default
@@ -473,11 +503,7 @@ create  cheftdd/Vagrantfile
 							```
 						</script>
 						<aside class="notes">
-							The skeleton of new cookbook is available<br>
-
-							Also, it templates files for KitchenCI, Vagrant, and testing<br>
-							so that it is possible to start developing cookbooks proficiently<br>
-							right away.
+							See full output of "berks cookbook" command
 						</aside>
 					</section>
 				</section>
