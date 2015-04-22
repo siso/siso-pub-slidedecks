@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>TDD with Chef</title>
+
+		<meta name="description" content="Chef Recap">
+		<meta name="author" content="Simone Soldateschi">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Slide-deck **************************************** -->
+
+			<div class="slides">
+
+				<section>
+					<h1>Chef Recap</h1>
+					<h3 style="color:#888">-</h3>
+					<p>
+						<small>by <a href="http://au.linkedin.com/in/simonesoldateschi" target="_blank">Simone Soldateschi</a> / <a href="http://twitter.com/soldasimo" target="_blank">@soldasimo</a></small>
+					</p>
+				</section>
+
+				<section style="text-align: left;">
+					<img src="images/siso.jpg" style="height: 400px; float:right; margin-top:150px;">
+					<h1>Who am I?</h1>
+					<a href="http://au.linkedin.com/in/simonesoldateschi" target="_blank">Simone Soldateschi</a> (<a href="http://twitter.com/soldasimo" target="_blank">@soldasimo</a>)
+					<p>
+						<small>
+							- <b>Snr DevOps Engineer</b> based in Sydney<br />
+							- Leading DevOps Engineering Team at <a =href="" _target="http://www.rackspace.com/">Rackspace AU</a><br />
+							<font style="color:#aaa	">
+								- 15 years of experience as:<br />
+								&nbsp;&nbsp;&nbsp;&nbsp;- SysAdmin<br />
+								&nbsp;&nbsp;&nbsp;&nbsp;- SoftwareEng<br />
+								&nbsp;&nbsp;&nbsp;&nbsp;- SysEng<br />
+								- Been DevOps'in for the last 5-ish years<br />
+							</font>
+						</small>
+					</p>
+				</section>
+
+
+				<section>
+					<h2>Links</h2>
+					<span style="text-align: left;">
+						<small>
+							- <i>click links on this slide-deck</i><br>
+							- <a href="https://docs.chef.io/chef_overview.html" target="_blank">An Overview of Chef</a><br>
+							- <a href="https://downloads.chef.io/chef-dk/" target="_blank">Install Chef DK</a><br>
+							- <a href="https://speakerdeck.com/nathenharvey/tdd-with-chef" target="_blank">TDD with Chef, by Nathen Harvey</a><br>
+							- <a href="https://github.com/hakimel/reveal.js" target="_blank">reveal.js</a><br>
+							- <a href="https://speakerdeck.com/nathenharvey/tdd-with-chef" target="_blank">TDD with Chef, by Nathen Harvey</a><br>
+							- <a href="http://devopsreactions.tumblr.com/" target="_blank">DevOps Reactions on Tumblr</a><br>
+							- <a href="http://en.wikipedia.org/wiki/The_Phoenix_Project:_A_Novel_About_IT,_DevOps,_and_Helping_Your_Business_Win" target="_blank">The Phoenix Project</a><br>
+						</small>
+					</span>
+				</section>
+
+				<section>
+					<!-- <h1>DevOps jokes</h1> -->
+					<section>
+						<img src="images/automate-all-the-things_360.png" style="height: 500px; margin-top:100px; border:0px;" />
+					</section>
+					<!-- <section>
+						<img src="images/tests-eveywhere.jpg" style="height: 400px; margin-top:100px; border:0px;" />
+					</section>
+					<section>
+						<img src="images/I-know-TDD.jpg" style="height: 500px; margin-top:100px; border:0px;" />
+					</section>
+					<section>
+						<img src="images/meme-bugs-1.jpg" style="height: 500px; margin-top:100px; border:0px;" />
+					</section>
+					<section>
+						<img src="images/devopsreactions.gif" style="height: 500px; margin-top:100px; border:0px;" /><br>
+						When you think you have it under control -- <a href="http://devopsreactions.tumblr.com/" target="_blank">devopsreactions</a>
+					</section> -->
+					<aside class="notes">
+						DevOps presentation is not finished unless you see memes!
+					</aside>
+				</section>
+
+			</div>
+
+			<!-- **************************************** Slide-deck -->
+
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
