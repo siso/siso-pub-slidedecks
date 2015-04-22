@@ -5,15 +5,13 @@
 Build Docker image:
 
 ```shell
-$ docker build -t="siso/slidedeck-cheftdd" .
+docker build -t="siso/slidedeck-chefsyd" .
 ```
 
 Launch Docker container from image:
 
 ```shell
-docker run -p 8000:8000 --name "slidedeck-cheftdd" \
--v /Users/siso/workspaces/cheftdd/slide-deck:/opt/reveal.js/slide-deck \
--d "siso/slidedeck-cheftdd"
+docker run -p 8000:8000 --name "slidedeck-chefsyd" -v $(pwd)/slide-deck:/opt/reveal.js/slide-deck -d "siso/slidedeck-chefsyd"
 ```
 
 View the presentation:
@@ -24,8 +22,8 @@ View the presentation:
 Start and stop Docker container:
 
 ```
-$ docker start slidedeck-cheftdd
-$ docker stop slidedeck-cheftdd
+$ docker start slidedeck-chefsyd
+$ docker stop slidedeck-chefsyd
 ```
 
 ## Export as PDF
