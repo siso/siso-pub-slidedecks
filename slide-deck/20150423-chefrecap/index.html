@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>TDD with Chef</title>
+		<title>Chef Recap</title>
 
 		<meta name="description" content="Chef Recap">
 		<meta name="author" content="Simone Soldateschi">
@@ -13,6 +13,18 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<style>
+		.slide0-highlight {
+		  font-size: 200%;
+		  color: #F76819;
+		  font-weight: 900;
+		}
+
+		.slide0 {
+		  font-size: 200%;
+		}
+		</style>
 
 		<link rel="stylesheet" href="../../css/reveal.css">
 		<link rel="stylesheet" href="../../css/theme/black.css" id="theme">
@@ -32,6 +44,7 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+
 	</head>
 
 	<body>
@@ -69,8 +82,180 @@
 					</p>
 				</section>
 
+				<section>
+					<section id="chefclient-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Chef Client</span>
+							<span class="fragment">runs on nodes</span>
+						</p>
+					</section>
+				</section>
 
 				<section>
+					<section id="chefserver-fragments">
+						<p class="slide0">
+							<span>Nodes</span>
+							<span class="fragment">talk to <span class="slide0-highlight">Chef Server</span></span>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section id="auth-comm-crypto-fragments">
+						<p class="slide0">
+							<span>Authentication and communication<br></span>
+							<span class="fragment">are encrypted with <span class="slide0-highlight">RSA keys</span></span>
+						</p>
+					</section>
+					<section id="knife-rb-fragments">
+						<p class="slide0">
+							<span>knife.rb<br></span>
+							<span class="fragment">TO<span class="slide0-highlight">DO</span></span>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section id="chef-servers-fragments">
+						<h2><span class="slide0-highlight">Chef Server</span><span class="fragment" style="font-size:75%; font-style: oblique;">s</span></h2>
+					</section>
+					<section>
+						<h2><span class="slide0-highlight">Chef Server</span></h2>
+						<span class="fragment" style="font-size:75%; font-style: oblique;">open-source</span>
+					</section>
+					<section>
+						<h2><span class="slide0-highlight">Managed Chef</span></h2>
+						<span class="fragment" style="font-size:75%; font-style: oblique;">SaaS</span>
+					</section>
+					<section>
+						<h2><span class="slide0-highlight">Chef Solo</span></h2>
+					</section>
+					<section>
+						<h2><span class="slide0-highlight">Chef Zero</span></h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<img src="images/swiss-army-knife-154314_640.png" style="height: 500px; margin-top:100px; border:0px;" />
+					</section>
+					<section id="knife-def-fragments">
+						<p class="slide0">
+							<span>Command-line utility</span>
+							<span class="fragment slide0-highlight">knife</span>
+						</p>
+					</section>
+					<section id="knife-node-create-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">create node</span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+					<section id="knife-node-bootstrap-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">bootstrap node</span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+					<section id="knife-node-list-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">list nodes</span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+					<section id="knife-node-status-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">node status</span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+					<section id="knife-node-search-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">search node</span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+					<section id="knife-node-view-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">view node</span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+					<section id="knife-node-edit-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">edit node</span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section id="data-bags-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Data bags<br></span>
+							<span class="fragment">store data</span>
+						</p>
+					</section>
+					<section id="data-bags-example-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Data Bags Example<br></span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section id="roles-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Roles<br></span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+					<section id="roles-example-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Roles Example<br></span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section id="environments-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Environments<br></span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+					<section id="environments-example-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Environment Example<br></span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section id="search-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Search<br></span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+					<section id="search-cli-example-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Search CLI Example<br></span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+					<section id="search-recipe-example-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Search inside recipe Example<br></span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+				</section>
+
+				<!-- <section>
 					<h2>Links</h2>
 					<span style="text-align: left;">
 						<small>
@@ -84,7 +269,7 @@
 							- <a href="http://en.wikipedia.org/wiki/The_Phoenix_Project:_A_Novel_About_IT,_DevOps,_and_Helping_Your_Business_Win" target="_blank">The Phoenix Project</a><br>
 						</small>
 					</span>
-				</section>
+				</section> -->
 
 				<section>
 					<!-- <h1>DevOps jokes</h1> -->
@@ -107,6 +292,10 @@
 					<aside class="notes">
 						DevOps presentation is not finished unless you see memes!
 					</aside>
+				</section>
+
+				<section data-background="images/thank-you.png">
+					&nbsp;
 				</section>
 
 			</div>
