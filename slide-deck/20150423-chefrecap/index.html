@@ -148,12 +148,20 @@
 					</section>
 				</section>
 
-				<!-- knife.rb -->
+				<!-- knife -->
 
 				<section>
 					<img src="images/swiss-army-knife-154314_640.png" style="height: 500px; margin-top:100px; border:0px;" />
 				</section>
 
+				<section>
+					<p>
+						<span class="fragment">Chef CLI</span>
+						<span class="slide0-highlight">knife</span>
+					</p>
+				</section>
+
+				<!-- knife.rb -->
 
 					<section id="knife-rb-basic-fragments">
 						<section>
@@ -214,13 +222,6 @@ knife[:rackspace_region] = ENV['OS_REGION_NAME']
 
 				<section>
 					<p>
-						<span class="fragment">Chef CLI</span>
-						<span class="slide0-highlight">knife</span>
-					</p>
-				</section>
-
-				<section>
-					<p>
 						<span class="slide0-highlight">create node</span>
 					</p>
 					<section>
@@ -277,43 +278,170 @@ $ knife bootstrap $HOST -x $USER -P $PASSWORD --sudo
 						</script>
 					</section>
 				</section>
-					<!-- <section>
-						<p class="slide0">
-							<span class="slide0-highlight">bootstrap node</span>
-							<span class="fragment">TODO</span>
-						</p>
-					</section>
+
+				<section>
+					<p>
+						<span class="slide0-highlight">list nodes</span>
+					</p>
 					<section>
-						<p class="slide0">
-							<span class="slide0-highlight">list nodes</span>
-							<span class="fragment">TODO</span>
-						</p>
+						&nbsp;
 					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife node list
+autoscale-as1fbedbc4
+autoscale-as3a69aba2
+autoscale-as3e52bf3e
+```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<p>
+						<span class="slide0-highlight">node status</span>
+					</p>
 					<section>
-						<p class="slide0">
-							<span class="slide0-highlight">node status</span>
-							<span class="fragment">TODO</span>
-						</p>
+						&nbsp;
 					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife status
+28 minutes ago, autoscale-as7eee00b6, autoscale-as7eee00b6, 119.9.30.222, centos 7.1.1503.
+23 minutes ago, autoscale-as3e644edf, autoscale-as3e644edf, 119.9.30.233, centos 7.1.1503.
+21 minutes ago, autoscale-ase422ef69, autoscale-ase422ef69, 119.9.30.181, centos 7.1.1503.
+```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<p>
+						<span class="slide0-highlight">show node</span>
+					</p>
 					<section>
-						<p class="slide0">
-							<span class="slide0-highlight">search node</span>
-							<span class="fragment">TODO</span>
-						</p>
+						&nbsp;
 					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife node show autoscale-as3e52bf3e
+Node Name:   autoscale-as3e52bf3e
+Environment: staging
+FQDN:        autoscale-as3e52bf3e
+IP:          119.9.30.234
+Run List:    recipe[platformstack::rackops_rolebook]
+Roles:
+Recipes:     platformstack::rackops_rolebook, chef-sugar::default, platformstack::motd, motd-tail::default, platformstack::rack_user, sudo::default, user::default, platformstack::ohai_plugins, ohai::default, git::default, platformstack::public_info, platformstack::default, platformstack::acl, platformstack::locale, ntp::default, timezone-ii::default, timezone-ii::linux-generic, auto-patch::default, cron::default, chef-client::delete_validation, chef-client::config, logrotate::default, chef-client::default, chef-client::service, chef-client::systemd_service, omnibus_updater::default, omnibus_updater::downloader, omnibus_updater::old_package_cleaner, omnibus_updater::installer, platformstack::iptables, rackspace_iptables::default, openssh::default
+Platform:    centos 7.1.1503
+Tags:        RemoteIP:119.9.30.234
+```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<p>
+						<span class="slide0-highlight">edit node</span>
+					</p>
 					<section>
-						<p class="slide0">
-							<span class="slide0-highlight">view node</span>
-							<span class="fragment">TODO</span>
-						</p>
+						&nbsp;
 					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife node edit autoscale-as3e52bf3e
+...
+```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<p>
+						<span class="slide0-highlight">search nodes</span>
+					</p>
 					<section>
+						&nbsp;
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife search node "fqdn:*stage*" | grep "Node Name"
+Node Name:   stage-tp
+Node Name:   stage-api-slave-as3ae54939
+Node Name:   stage-api-master
+Node Name:   stage-db-master
+Node Name:   stage-api-slave-as8423f9e6
+Node Name:   stage-api-slave-as734590a0
+Node Name:   stage-api-slave-ase8f1ca8e
+Node Name:   stage-db-slave-1
+Node Name:   lc-stage-db-slave-2
+Node Name:   stage-api-slave-1
+```
+						</script>
+					</section>
+				</section>
+
+				<!-- search nodes -->
+
+				<section>
+					<section id="search-fragments">
 						<p class="slide0">
-							<span class="slide0-highlight">edit node</span>
-							<span class="fragment">TODO</span>
+							<span class="slide0-highlight">Search</span>
+							<span> nodes</span>
 						</p>
 					</section>
-				</section> -->
+					<!-- <section id="search-cli-example-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Search CLI Example<br></span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section> -->
+					<section data-markdown>
+						<script type="text/template">
+```
+$ tail -n2 recipes/api.rb
+
+tag 'api'
+```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife search node "tags:api"
+...
+Node Name:   live-api-asa908d72f
+Environment: production
+FQDN:        live-api-asa908d72f
+IP:          1.2.3.4
+Run List:    recipe[foo::default], recipe[foo::api], recipe[foo::users]
+Roles:
+Recipes:     foo::default, foo::api, foo::users, slack_handler::default, ...
+Platform:    ubuntu 14.04
+Tags:        RemoteIP:1.2.3.4, api
+...
+```
+						</script>
+					</section>
+					<section id="search-recipe-example-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Search inside recipe</span>
+						</p>
+						<section data-markdown class="fragment">
+							<script type="text/template">
+```
+# find API nodes
+api_search = search('node', '(tags:api)' <<
+  "AND chef_environment:#{node.chef_environment}")
+```
+							</script>
+						</section>
+					</section>
+				</section>
 
 				<section>
 					<section id="data-bags-fragments">
@@ -360,26 +488,7 @@ $ knife bootstrap $HOST -x $USER -P $PASSWORD --sudo
 					</section>
 				</section>
 
-				<section>
-					<section id="search-fragments">
-						<p class="slide0">
-							<span class="slide0-highlight">Search<br></span>
-							<span class="fragment">TODO</span>
-						</p>
-					</section>
-					<section id="search-cli-example-fragments">
-						<p class="slide0">
-							<span class="slide0-highlight">Search CLI Example<br></span>
-							<span class="fragment">TODO</span>
-						</p>
-					</section>
-					<section id="search-recipe-example-fragments">
-						<p class="slide0">
-							<span class="slide0-highlight">Search inside recipe Example<br></span>
-							<span class="fragment">TODO</span>
-						</p>
-					</section>
-				</section>
+
 
 				<!-- <section>
 					<h2>Links</h2>
