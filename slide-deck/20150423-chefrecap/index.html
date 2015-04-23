@@ -480,7 +480,7 @@ api_search = search('node', '(tags:api)' <<
 					</section>
 				</section>
 
-				<section>
+				<!-- <section>
 					<section id="roles-fragments">
 						<p class="slide0">
 							<span class="slide0-highlight">Roles<br></span>
@@ -493,20 +493,66 @@ api_search = search('node', '(tags:api)' <<
 							<span class="fragment">TODO</span>
 						</p>
 					</section>
-				</section>
+				</section> -->
 
 				<section>
 					<section id="environments-fragments">
 						<p class="slide0">
 							<span class="slide0-highlight">Environments<br></span>
-							<span class="fragment">TODO</span>
+							<span class="fragment">devel<br></span>
+							<span class="fragment">staging<br></span>
+							<span class="fragment">live<br></span>
 						</p>
 					</section>
-					<section id="environments-example-fragments">
+					<section id="environments-example-0-fragments">
 						<p class="slide0">
-							<span class="slide0-highlight">Environment Example<br></span>
-							<span class="fragment">TODO</span>
+							<span class="slide0-highlight">Cookbook version<br></span>
+							<span class="fragment">devel: 0.1.81<br></span>
+							<span class="fragment">staging: 0.1.80<br></span>
+							<span class="fragment">live: 0.1.78<br></span>
 						</p>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Staging
+```json
+{
+  "foo": {
+    "newrelic": {
+      "force_upgrade": true
+    },
+    "deploy": {
+      "php-app": {
+        "config": {
+          "branch": "v2015-apr-21"
+        }
+      }
+    }
+  }
+}
+```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Live
+```json
+{
+  "foo": {
+    "newrelic": {
+      "force_upgrade": false
+    },
+    "deploy": {
+      "php-app": {
+        "config": {
+          "branch": "v2015-apr-1-stable"
+        }
+      }
+    }
+  }
+}
+```
+						</script>
 					</section>
 				</section>
 
