@@ -452,9 +452,31 @@ api_search = search('node', '(tags:api)' <<
 					</section>
 					<section id="data-bags-example-fragments">
 						<p class="slide0">
-							<span class="slide0-highlight">Data Bags Example<br></span>
-							<span class="fragment">TODO</span>
+							<span class="slide0-highlight">Data Bags Example</span>
 						</p>
+						<section data-markdown class="fragment">
+							<script type="text/template">
+	```
+	{
+  "id": "staging",
+  "foo": {
+    "db_read_clb": "10.189.254.50",
+		...
+		"mysql": {
+      "databases": [
+        "db0",
+        "db1"
+      ],
+      "user": {
+        "extra_allowed_hosts": [
+          "%"
+        ]
+      }
+    },
+		...
+	```
+							</script>
+						</section>
 					</section>
 				</section>
 
