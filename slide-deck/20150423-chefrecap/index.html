@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Chef Recap</title>
+
+		<meta name="description" content="101 - Chef Recap">
+		<meta name="author" content="Simone Soldateschi">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<style>
+		.slide0-highlight {
+		  font-size: 200%;
+		  color: #F76819;
+		  font-weight: 900;
+		}
+
+		.slide0 {
+		  font-size: 200%;
+		}
+		</style>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Slide-deck **************************************** -->
+
+			<div class="slides">
+
+				<section>
+					<h1>Chef Recap</h1>
+					<h3 style="color:#888; font-style: italic">101</h3>
+					<p>
+						<small>by <a href="http://au.linkedin.com/in/simonesoldateschi" target="_blank">Simone Soldateschi</a> / <a href="http://twitter.com/soldasimo" target="_blank">@soldasimo</a></small>
+					</p>
+				</section>
+
+				<section style="text-align: left;">
+					<img src="images/siso.jpg" style="height: 400px; float:right; margin-top:150px;">
+					<h1>Who am I?</h1>
+					<a href="http://au.linkedin.com/in/simonesoldateschi" target="_blank">Simone Soldateschi</a> (<a href="http://twitter.com/soldasimo" target="_blank">@soldasimo</a>)
+					<p>
+						<small>
+							- <b>Snr DevOps Engineer</b> based in Sydney<br />
+							- Leading DevOps Engineering Team at <a =href="" _target="http://www.rackspace.com/">Rackspace AU</a><br />
+							<font style="color:#aaa	">
+								- 15 years of experience as:<br />
+								&nbsp;&nbsp;&nbsp;&nbsp;- SysAdmin<br />
+								&nbsp;&nbsp;&nbsp;&nbsp;- SoftwareEng<br />
+								&nbsp;&nbsp;&nbsp;&nbsp;- SysEng<br />
+								- Been DevOps'in for the last 5-ish years<br />
+							</font>
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<section id="chefclient-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Chef Client</span>
+							<span class="fragment">runs on nodes</span>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section id="chefserver-fragments">
+						<p class="slide0">
+							<span>Nodes</span>
+							<span class="fragment">talk to <span class="slide0-highlight">Chef Server</span></span>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section id="auth-comm-crypto-fragments">
+						<p class="slide0">
+							<span>Authentication and communication<br></span>
+							<span class="fragment">are encrypted with <span class="slide0-highlight">RSA keys</span></span>
+						</p>
+					</section>
+					<section id="dot-chef-dir-fragments">
+						<p class="slide0">
+							<span>Have a look at<br></span>
+							<span class="slide0-highlight">./chef</span>
+						</p>
+						<p class="fragment" style="font-family:'Courier New'; font-size: 75%;">
+							chef-org-validator.pem
+						</p>
+						<p class="fragment" style="font-family:'Courier New'; font-size: 75%;">
+							knife.rb
+						</p>
+						<p class="fragment" style="font-family:'Courier New'; font-size: 75%;">
+							siso.pem
+						</p>
+					</section>
+				</section>
+
+				<!-- Chef servers -->
+
+				<section>
+					<section id="chef-servers-fragments">
+						<h2><span class="slide0-highlight">Chef Server</span><span class="fragment" style="font-size:75%; font-style: oblique;">s</span></h2>
+					</section>
+					<section>
+						<h2><span class="slide0-highlight">Chef Server</span></h2>
+						<span class="fragment" style="font-size:75%; font-style: oblique;">open-source</span>
+					</section>
+					<section>
+						<h2><span class="slide0-highlight">Managed Chef</span></h2>
+						<span class="fragment" style="font-size:75%; font-style: oblique;">SaaS</span>
+					</section>
+					<section>
+						<h2><span class="slide0-highlight">Chef Solo</span></h2>
+						<span class="fragment" style="font-size:75%; font-style: oblique;">dev and test</span>
+					</section>
+					<section>
+						<h2><span class="slide0-highlight">Chef Zero</span></h2>
+						<span class="fragment" style="font-size:75%; font-style: oblique;">dev and test</span>
+					</section>
+				</section>
+
+				<!-- knife -->
+
+				<section>
+					<img src="images/swiss-army-knife-154314_640.png" style="height: 500px; margin-top:100px; border:0px;" />
+				</section>
+
+				<section>
+					<p>
+						<span class="fragment">Chef CLI</span>
+						<span class="slide0-highlight">knife</span>
+					</p>
+				</section>
+
+				<!-- knife.rb -->
+
+					<section id="knife-rb-basic-fragments">
+						<section>
+							<h2>knife.rb</h2>
+							<p class="slide0">
+								<span class="fragment"><span class="slide0-highlight">basic</span>
+								<span> configuration</span></span>
+							</p>
+							<section data-markdown class="fragment">
+								<script type="text/template">
+```
+current_dir = File.dirname(__FILE__)
+log_level                :info
+log_location             STDOUT
+node_name                "siso"
+client_key               "#{current_dir}/siso.pem"
+validation_client_name   "chef-org-validator"
+validation_key           "#{current_dir}/chef-org-validator.pem"
+chef_server_url          "https://api.opscode.com/organizations/chef-org"
+cache_type               'BasicFile'
+cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
+cookbook_path            ["#{current_dir}/../cookbooks"]
+
+knife[:editor] = "vim"
+```
+								</script>
+								<aside class="notes">
+									...
+								</aside>
+							</section>
+						</section>
+					</section>
+
+					<section id="knife-rb-cloud-fragments">
+						<section>
+							<h2>knife.rb<br></h2>
+							<p class="slide0">
+								<span class="fragment"><span class="slide0-highlight">Cloud</span>
+								<span> configuration</span></span>
+							</p>
+							<section data-markdown class="fragment">
+								<script type="text/template">
+```
+...
+knife[:rackspace_api_username] = ENV['OS_USERNAME']
+knife[:rackspace_api_key] = ENV['OS_PASSWORD']
+knife[:rackspace_region] = ENV['OS_REGION_NAME']
+```
+								</script>
+								<aside class="notes">
+									...
+								</aside>
+							</section>
+						</section>
+					</section>
+
+				<!-- knife operations -->
+
+				<section>
+					<p>
+						<span class="slide0-highlight">create</span><span> node</span>
+					</p>
+					<section>
+						&nbsp;
+					</section>
+						<section data-markdown>
+							<script type="text/template">
+```
+$ knife node create NODE_NAME
+```
+							</script>
+						</section>
+						<section data-markdown>
+							<script type="text/template">
+Cloud server
+```
+$ knife rackspace server create -N foo-server
+```
+							</script>
+						</section>
+						<section data-markdown>
+							<script type="text/template">
+Cloud server with *"run_list"* and *"environment"*
+```
+$ knife rackspace server create \
+-r 'recipe[foo::default]' \
+--no-tcp-test-ssh
+--bootstrap-version 11.16.4 -I a4a82b28-c5a8-49e3-b31a-db289dcac0f8 \
+-f "io1-30" -E ENVIRONMENT -N live-foo-master
+```
+							</script>
+					</section>
+				</section>
+
+				<section>
+					<p>
+						<span class="slide0-highlight">bootstrap</span><span> node</span>
+					</p>
+					<section>
+						&nbsp;
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife bootstrap $HOST -x root -P $PASSWORD
+```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife bootstrap $HOST -x $USER -P $PASSWORD --sudo
+```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<p>
+						<span class="slide0-highlight">list</span><span> node</span>
+					</p>
+					<section>
+						&nbsp;
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife node list
+autoscale-as1fbedbc4
+autoscale-as3a69aba2
+autoscale-as3e52bf3e
+```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<p>
+						<span>node </span><span class="slide0-highlight">status</span>
+					</p>
+					<section>
+						&nbsp;
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife status
+28 minutes ago, autoscale-as7eee00b6, autoscale-as7eee00b6, 1.2.3.4, centos 7.1.1503.
+23 minutes ago, autoscale-as3e644edf, autoscale-as3e644edf, 1.2.3.5, centos 7.1.1503.
+21 minutes ago, autoscale-ase422ef69, autoscale-ase422ef69, 1.2.3.6, centos 7.1.1503.
+```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<p>
+						<span class="slide0-highlight">show</span><span> node</span>
+					</p>
+					<section>
+						&nbsp;
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife node show autoscale-as3e52bf3e
+Node Name:   autoscale-as3e52bf3e
+Environment: staging
+FQDN:        autoscale-as3e52bf3e
+IP:          1.2.3.4
+Run List:    recipe[platformstack::rackops_rolebook]
+Roles:
+Recipes:     platformstack::rackops_rolebook, chef-sugar::default, platformstack::motd, motd-tail::default, platformstack::rack_user, sudo::default, user::default, platformstack::ohai_plugins, ohai::default, git::default, platformstack::public_info, platformstack::default, platformstack::acl, platformstack::locale, ntp::default, timezone-ii::default, timezone-ii::linux-generic, auto-patch::default, cron::default, chef-client::delete_validation, chef-client::config, logrotate::default, chef-client::default, chef-client::service, chef-client::systemd_service, omnibus_updater::default, omnibus_updater::downloader, omnibus_updater::old_package_cleaner, omnibus_updater::installer, platformstack::iptables, rackspace_iptables::default, openssh::default
+Platform:    centos 7.1.1503
+Tags:        RemoteIP:1.2.3.4
+```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<p>
+						<span class="slide0-highlight">edit</span><span> node</span>
+					</p>
+					<section>
+						&nbsp;
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife node edit autoscale-as3e52bf3e
+...
+```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<p>
+						<span class="slide0-highlight">search</span><span> nodes</span>
+					</p>
+					<section>
+						&nbsp;
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife search node "fqdn:*stage*" | grep "Node Name"
+Node Name:   stage-tp
+Node Name:   stage-api-slave-as3ae54939
+Node Name:   stage-api-master
+Node Name:   stage-db-master
+Node Name:   stage-api-slave-as8423f9e6
+Node Name:   stage-api-slave-as734590a0
+Node Name:   stage-api-slave-ase8f1ca8e
+Node Name:   stage-db-slave-1
+Node Name:   stage-api-slave-1
+```
+						</script>
+					</section>
+				</section>
+
+				<!-- search nodes -->
+
+				<section>
+					<p>
+						<span>search in </span><span class="slide0-highlight">cookbooks</span>
+					</p>
+					<section>
+						&nbsp;
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ tail -n2 recipes/api.rb
+
+tag 'api'
+```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+$ knife search node "tags:api"
+...
+Node Name:   live-api-asa908d72f
+Environment: production
+FQDN:        live-api-asa908d72f
+IP:          1.2.3.4
+Run List:    recipe[foo::default], recipe[foo::api], recipe[foo::users]
+Roles:
+Recipes:     foo::default, foo::api, foo::users, slack_handler::default, ...
+Platform:    ubuntu 14.04
+Tags:        RemoteIP:1.2.3.4, api
+...
+```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+```
+# find API nodes
+api_search = search('node', '(tags:api)' <<
+  "AND chef_environment:#{node.chef_environment}")
+```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section id="data-bags-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Data bags<br></span>
+							<span class="fragment">store data</span>
+						</p>
+					</section>
+					<section id="data-bags-example-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Data Bags Example</span>
+						</p>
+						<section data-markdown class="fragment">
+							<script type="text/template">
+	```
+	{
+  "id": "staging",
+  "foo": {
+    "db_read_clb": "10.189.254.50",
+		...
+		"mysql": {
+      "databases": [
+        "db0",
+        "db1"
+      ],
+      "user": {
+        "extra_allowed_hosts": [
+          "%"
+        ]
+      }
+    },
+		...
+	```
+							</script>
+						</section>
+					</section>
+				</section>
+
+				<!-- <section>
+					<section id="roles-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Roles<br></span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+					<section id="roles-example-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Roles Example<br></span>
+							<span class="fragment">TODO</span>
+						</p>
+					</section>
+				</section> -->
+
+				<section>
+					<section id="environments-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Environments<br></span>
+							<span class="fragment">devel<br></span>
+							<span class="fragment">staging<br></span>
+							<span class="fragment">live<br></span>
+						</p>
+					</section>
+					<section id="environments-example-0-fragments">
+						<p class="slide0">
+							<span class="slide0-highlight">Cookbook version<br></span>
+							<span class="fragment">devel: 0.1.81<br></span>
+							<span class="fragment">staging: 0.1.80<br></span>
+							<span class="fragment">live: 0.1.78<br></span>
+						</p>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Staging
+```json
+{
+  "foo": {
+    "newrelic": {
+      "force_upgrade": true
+    },
+    "deploy": {
+      "php-app": {
+        "config": {
+          "branch": "v2015-apr-21"
+        }
+      }
+    }
+  }
+}
+```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+Live
+```json
+{
+  "foo": {
+    "newrelic": {
+      "force_upgrade": false
+    },
+    "deploy": {
+      "php-app": {
+        "config": {
+          "branch": "v2015-apr-1-stable"
+        }
+      }
+    }
+  }
+}
+```
+						</script>
+					</section>
+				</section>
+
+
+
+				<!-- <section>
+					<h2>Links</h2>
+					<span style="text-align: left;">
+						<small>
+							- <i>click links on this slide-deck</i><br>
+							- <a href="https://docs.chef.io/chef_overview.html" target="_blank">An Overview of Chef</a><br>
+							- <a href="https://downloads.chef.io/chef-dk/" target="_blank">Install Chef DK</a><br>
+							- <a href="https://speakerdeck.com/nathenharvey/tdd-with-chef" target="_blank">TDD with Chef, by Nathen Harvey</a><br>
+							- <a href="https://github.com/hakimel/reveal.js" target="_blank">reveal.js</a><br>
+							- <a href="https://speakerdeck.com/nathenharvey/tdd-with-chef" target="_blank">TDD with Chef, by Nathen Harvey</a><br>
+							- <a href="http://devopsreactions.tumblr.com/" target="_blank">DevOps Reactions on Tumblr</a><br>
+							- <a href="http://en.wikipedia.org/wiki/The_Phoenix_Project:_A_Novel_About_IT,_DevOps,_and_Helping_Your_Business_Win" target="_blank">The Phoenix Project</a><br>
+						</small>
+					</span>
+				</section> -->
+
+				<section>
+					<!-- <h1>DevOps jokes</h1> -->
+					<section>
+						<img src="images/automate-all-the-things_360.png" style="height: 500px; margin-top:100px; border:0px;" />
+					</section>
+					<!-- <section>
+						<img src="images/tests-eveywhere.jpg" style="height: 400px; margin-top:100px; border:0px;" />
+					</section>
+					<section>
+						<img src="images/I-know-TDD.jpg" style="height: 500px; margin-top:100px; border:0px;" />
+					</section>
+					<section>
+						<img src="images/meme-bugs-1.jpg" style="height: 500px; margin-top:100px; border:0px;" />
+					</section>
+					<section>
+						<img src="images/devopsreactions.gif" style="height: 500px; margin-top:100px; border:0px;" /><br>
+						When you think you have it under control -- <a href="http://devopsreactions.tumblr.com/" target="_blank">devopsreactions</a>
+					</section> -->
+					<aside class="notes">
+						DevOps presentation is not finished unless you see memes!
+					</aside>
+				</section>
+
+				<section data-background="images/thank-you.png">
+					&nbsp;
+				</section>
+
+				<section style="text-align: left;">
+					<!-- <img src="images/siso.jpg" style="height: 400px; float:right; margin-top:150px;"> -->
+					<!-- <h3>Contact details</h3> -->
+					<a href="mailto:simone.soldateschi@gmail.com" target="_blank">Simone Soldateschi</a>
+					<p>
+						<small>
+							- email: <a href="mailto:simone.soldateschi@gmail.com" target="_blank">simone.soldateschi@gmail.com</a><br />
+							- GitHub: <a href="http://github.com/siso" target="_blank">github.com/siso</a><br />
+							- twitter: <a href="http://twitter.com/soldasimo" target="_blank">@soldasimo</a><br />
+							- LinkedIn: <a href="http://au.linkedin.com/in/simonesoldateschi" target="_blank">simonesoldateschi</a>
+							</font>
+						</small>
+					</p>
+				</section>
+
+			</div>
+
+			<!-- **************************************** Slide-deck -->
+
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
