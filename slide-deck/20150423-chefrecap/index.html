@@ -124,6 +124,8 @@
 					</section>
 				</section>
 
+				<!-- Chef servers -->
+
 				<section>
 					<section id="chef-servers-fragments">
 						<h2><span class="slide0-highlight">Chef Server</span><span class="fragment" style="font-size:75%; font-style: oblique;">s</span></h2>
@@ -146,64 +148,116 @@
 					</section>
 				</section>
 
+				<!-- knife.rb -->
+
 				<section>
-					<section>
-						<img src="images/swiss-army-knife-154314_640.png" style="height: 500px; margin-top:100px; border:0px;" />
-					</section>
-					<section>
-						<section id="knife-rb-fragments">
+					<img src="images/swiss-army-knife-154314_640.png" style="height: 500px; margin-top:100px; border:0px;" />
+				</section>
+
+
+					<section id="knife-rb-basic-fragments">
+						<section>
+							<h2>knife.rb</h2>
 							<p class="slide0">
-								<span>knife.rb<br></span>
-								<span class="fragment">TO<span class="slide0-highlight">DO</span></span>
+								<span class="fragment"><span class="slide0-highlight">basic</span>
+								<span> configuration</span></span>
 							</p>
-							<p class="fragment" style="font-family:'Courier New'">
-								test/integration/SUITE/rspec/WHATEVER_spec.rb
-							</p>
+							<section data-markdown class="fragment">
+								<script type="text/template">
+```
+current_dir = File.dirname(__FILE__)
+log_level                :info
+log_location             STDOUT
+node_name                "siso"
+client_key               "#{current_dir}/siso.pem"
+validation_client_name   "chef-org-validator"
+validation_key           "#{current_dir}/chef-org-validator.pem"
+chef_server_url          "https://api.opscode.com/organizations/chef-org"
+cache_type               'BasicFile'
+cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
+cookbook_path            ["#{current_dir}/../cookbooks"]
+
+knife[:editor] = "vim"
+```
+								</script>
+								<aside class="notes">
+									...
+								</aside>
+							</section>
 						</section>
 					</section>
-					<section id="knife-def-fragments">
+
+					<section id="knife-rb-cloud-fragments">
+						<section>
+							<h2>knife.rb<br></h2>
+							<p class="slide0">
+								<span class="fragment"><span class="slide0-highlight">Cloud</span>
+								<span> configuration</span></span>
+							</p>
+							<section data-markdown class="fragment">
+								<script type="text/template">
+```
+...
+knife[:rackspace_api_username] = ENV['OS_USERNAME']
+knife[:rackspace_api_key] = ENV['OS_PASSWORD']
+knife[:rackspace_region] = ENV['OS_REGION_NAME']
+```
+								</script>
+								<aside class="notes">
+									...
+								</aside>
+							</section>
+						</section>
+					</section>
+
+				<!-- knife -->
+
+				<section>
+
+					<section>
 						<p class="slide0">
 							<span>Command-line utility</span>
 							<span class="fragment slide0-highlight">knife</span>
+							<span class="fragment">TODO</span>
 						</p>
 					</section>
-					<section id="knife-node-create-fragments">
+					<section>
 						<p class="slide0">
 							<span class="slide0-highlight">create node</span>
 							<span class="fragment">TODO</span>
 						</p>
 					</section>
-					<section id="knife-node-bootstrap-fragments">
+					<section>
 						<p class="slide0">
 							<span class="slide0-highlight">bootstrap node</span>
 							<span class="fragment">TODO</span>
 						</p>
 					</section>
-					<section id="knife-node-list-fragments">
+					<section>
 						<p class="slide0">
 							<span class="slide0-highlight">list nodes</span>
 							<span class="fragment">TODO</span>
 						</p>
 					</section>
-					<section id="knife-node-status-fragments">
+					<section>
 						<p class="slide0">
 							<span class="slide0-highlight">node status</span>
 							<span class="fragment">TODO</span>
 						</p>
 					</section>
-					<section id="knife-node-search-fragments">
+					<section>
 						<p class="slide0">
 							<span class="slide0-highlight">search node</span>
 							<span class="fragment">TODO</span>
 						</p>
 					</section>
-					<section id="knife-node-view-fragments">
+					<section>
 						<p class="slide0">
 							<span class="slide0-highlight">view node</span>
 							<span class="fragment">TODO</span>
 						</p>
 					</section>
-					<section id="knife-node-edit-fragments">
+					<section>
 						<p class="slide0">
 							<span class="slide0-highlight">edit node</span>
 							<span class="fragment">TODO</span>
