@@ -210,24 +210,51 @@ knife[:rackspace_region] = ENV['OS_REGION_NAME']
 						</section>
 					</section>
 
-				<!-- knife -->
+				<!-- knife operations -->
 
 				<section>
+					<p>
+						<span class="fragment">Chef CLI</span>
+						<span class="slide0-highlight">knife</span>
+					</p>
+				</section>
 
+				<section>
+					<p>
+						<span class="slide0-highlight">create node</span>
+					</p>
 					<section>
-						<p class="slide0">
-							<span>Command-line utility</span>
-							<span class="fragment slide0-highlight">knife</span>
-							<span class="fragment">TODO</span>
-						</p>
+						&nbsp;
 					</section>
-					<section>
-						<p class="slide0">
-							<span class="slide0-highlight">create node</span>
-							<span class="fragment">TODO</span>
-						</p>
+						<section data-markdown>
+							<script type="text/template">
+```
+$ knife node delete NODE_NAME
+```
+							</script>
+						</section>
+						<section data-markdown>
+							<script type="text/template">
+Cloud server
+```
+$ knife rackspace server create -N foo-server
+```
+							</script>
+						</section>
+						<section data-markdown>
+							<script type="text/template">
+Cloud server with run_list and environment
+```
+$ knife rackspace server create \
+-r 'recipe[foo::default]' \
+--no-tcp-test-ssh
+--bootstrap-version 11.16.4 -I a4a82b28-c5a8-49e3-b31a-db289dcac0f8 \
+-f "io1-30" -E ENVIRONMENT -N live-db-master
+```
+							</script>
 					</section>
-					<section>
+				</section>
+					<!-- <section>
 						<p class="slide0">
 							<span class="slide0-highlight">bootstrap node</span>
 							<span class="fragment">TODO</span>
@@ -263,7 +290,7 @@ knife[:rackspace_region] = ENV['OS_REGION_NAME']
 							<span class="fragment">TODO</span>
 						</p>
 					</section>
-				</section>
+				</section> -->
 
 				<section>
 					<section id="data-bags-fragments">
