@@ -222,7 +222,7 @@ knife[:rackspace_region] = ENV['OS_REGION_NAME']
 
 				<section>
 					<p>
-						<span class="slide0-highlight">create node</span>
+						<span class="slide0-highlight">create</span><span> node</span>
 					</p>
 					<section>
 						&nbsp;
@@ -230,7 +230,7 @@ knife[:rackspace_region] = ENV['OS_REGION_NAME']
 						<section data-markdown>
 							<script type="text/template">
 ```
-$ knife node delete NODE_NAME
+$ knife node create NODE_NAME
 ```
 							</script>
 						</section>
@@ -244,13 +244,13 @@ $ knife rackspace server create -N foo-server
 						</section>
 						<section data-markdown>
 							<script type="text/template">
-Cloud server with run_list and environment
+Cloud server with *"run_list"* and *"environment"*
 ```
 $ knife rackspace server create \
 -r 'recipe[foo::default]' \
 --no-tcp-test-ssh
 --bootstrap-version 11.16.4 -I a4a82b28-c5a8-49e3-b31a-db289dcac0f8 \
--f "io1-30" -E ENVIRONMENT -N live-db-master
+-f "io1-30" -E ENVIRONMENT -N live-foo-master
 ```
 							</script>
 					</section>
@@ -258,7 +258,7 @@ $ knife rackspace server create \
 
 				<section>
 					<p>
-						<span class="slide0-highlight">bootstrap node</span>
+						<span class="slide0-highlight">bootstrap</span><span> node</span>
 					</p>
 					<section>
 						&nbsp;
@@ -281,7 +281,7 @@ $ knife bootstrap $HOST -x $USER -P $PASSWORD --sudo
 
 				<section>
 					<p>
-						<span class="slide0-highlight">list nodes</span>
+						<span class="slide0-highlight">list</span><span> node</span>
 					</p>
 					<section>
 						&nbsp;
@@ -300,7 +300,7 @@ autoscale-as3e52bf3e
 
 				<section>
 					<p>
-						<span class="slide0-highlight">node status</span>
+						<span>node </span><span class="slide0-highlight">status</span>
 					</p>
 					<section>
 						&nbsp;
@@ -309,9 +309,9 @@ autoscale-as3e52bf3e
 						<script type="text/template">
 ```
 $ knife status
-28 minutes ago, autoscale-as7eee00b6, autoscale-as7eee00b6, 119.9.30.222, centos 7.1.1503.
-23 minutes ago, autoscale-as3e644edf, autoscale-as3e644edf, 119.9.30.233, centos 7.1.1503.
-21 minutes ago, autoscale-ase422ef69, autoscale-ase422ef69, 119.9.30.181, centos 7.1.1503.
+28 minutes ago, autoscale-as7eee00b6, autoscale-as7eee00b6, 1.2.3.4, centos 7.1.1503.
+23 minutes ago, autoscale-as3e644edf, autoscale-as3e644edf, 1.2.3.5, centos 7.1.1503.
+21 minutes ago, autoscale-ase422ef69, autoscale-ase422ef69, 1.2.3.6, centos 7.1.1503.
 ```
 						</script>
 					</section>
@@ -319,7 +319,7 @@ $ knife status
 
 				<section>
 					<p>
-						<span class="slide0-highlight">show node</span>
+						<span class="slide0-highlight">show</span><span> node</span>
 					</p>
 					<section>
 						&nbsp;
@@ -331,12 +331,12 @@ $ knife node show autoscale-as3e52bf3e
 Node Name:   autoscale-as3e52bf3e
 Environment: staging
 FQDN:        autoscale-as3e52bf3e
-IP:          119.9.30.234
+IP:          1.2.3.4
 Run List:    recipe[platformstack::rackops_rolebook]
 Roles:
 Recipes:     platformstack::rackops_rolebook, chef-sugar::default, platformstack::motd, motd-tail::default, platformstack::rack_user, sudo::default, user::default, platformstack::ohai_plugins, ohai::default, git::default, platformstack::public_info, platformstack::default, platformstack::acl, platformstack::locale, ntp::default, timezone-ii::default, timezone-ii::linux-generic, auto-patch::default, cron::default, chef-client::delete_validation, chef-client::config, logrotate::default, chef-client::default, chef-client::service, chef-client::systemd_service, omnibus_updater::default, omnibus_updater::downloader, omnibus_updater::old_package_cleaner, omnibus_updater::installer, platformstack::iptables, rackspace_iptables::default, openssh::default
 Platform:    centos 7.1.1503
-Tags:        RemoteIP:119.9.30.234
+Tags:        RemoteIP:1.2.3.4
 ```
 						</script>
 					</section>
@@ -344,7 +344,7 @@ Tags:        RemoteIP:119.9.30.234
 
 				<section>
 					<p>
-						<span class="slide0-highlight">edit node</span>
+						<span class="slide0-highlight">edit</span><span> node</span>
 					</p>
 					<section>
 						&nbsp;
@@ -361,7 +361,7 @@ $ knife node edit autoscale-as3e52bf3e
 
 				<section>
 					<p>
-						<span class="slide0-highlight">search nodes</span>
+						<span class="slide0-highlight">search</span><span> nodes</span>
 					</p>
 					<section>
 						&nbsp;
@@ -390,16 +390,10 @@ Node Name:   stage-api-slave-1
 				<section>
 					<section id="search-fragments">
 						<p class="slide0">
-							<span class="slide0-highlight">Search</span>
-							<span> nodes</span>
+							<span>search in </span>
+							<span class="slide0-highlight">cookbooks</span>
 						</p>
 					</section>
-					<!-- <section id="search-cli-example-fragments">
-						<p class="slide0">
-							<span class="slide0-highlight">Search CLI Example<br></span>
-							<span class="fragment">TODO</span>
-						</p>
-					</section> -->
 					<section data-markdown>
 						<script type="text/template">
 ```
@@ -427,19 +421,14 @@ Tags:        RemoteIP:1.2.3.4, api
 ```
 						</script>
 					</section>
-					<section id="search-recipe-example-fragments">
-						<p class="slide0">
-							<span class="slide0-highlight">Search inside recipe</span>
-						</p>
-						<section data-markdown class="fragment">
-							<script type="text/template">
+					<section data-markdown>
+						<script type="text/template">
 ```
 # find API nodes
 api_search = search('node', '(tags:api)' <<
   "AND chef_environment:#{node.chef_environment}")
 ```
-							</script>
-						</section>
+						</script>
 					</section>
 				</section>
 
