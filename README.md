@@ -5,13 +5,13 @@
 Build Docker image:
 
 ```shell
-docker build -t="siso/slidedeck-chefsyd" .
+docker build -t="siso/siso-revealjs" .
 ```
 
 Launch Docker container from image:
 
 ```shell
-docker run -p 8000:8000 --name "slidedeck-chefsyd" -v $(pwd)/slide-deck:/opt/reveal.js/slide-deck -d "siso/slidedeck-chefsyd"
+docker run -p 8000:8000 --name "siso-pub-slidedecks" -v $(pwd)/slide-deck:/opt/reveal.js/slide-deck -d "siso/siso-revealjs"
 ```
 
 View the presentation:
