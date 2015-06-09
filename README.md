@@ -1,4 +1,4 @@
-# TDD with Chef
+# siso's public slide-decks
 
 ## Slide-deck powered by Docker, node.js and reveal.js
 
@@ -22,15 +22,15 @@ View the presentation:
 Start and stop Docker container:
 
 ```
-$ docker start slidedeck-chefsyd
-$ docker stop slidedeck-chefsyd
+$ docker start siso-pub-slidedecks
+$ docker stop siso-pub-slidedecks
 ```
 
 ## Export as PDF
 
 Point web browser to:
 
-- http://localhost:9999/slide-deck/?print-pdf
+- http://localhost:8000/slide-deck/?print-pdf
 
 Print, and select "save as PDF".
 
@@ -41,4 +41,4 @@ Print, and select "save as PDF".
 ## TODO
 
 - Fix speaker's notes
-- Image is broken, http://0.0.0.0:9999/slide-deck/#/35/1
+- Image is broken, http://0.0.0.0:8000/slide-deck/#/35/1
